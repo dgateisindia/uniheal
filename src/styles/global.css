@@ -1,0 +1,113 @@
+/*GOOGLE FONT - POPPINS*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+/*ROOT VARIABLES*/
+:root {
+    --primary-color: #159f96;
+    --secondary-color: #0757a0;
+    --heading-color: #0757a0;
+    --text-color: #343a40;
+    --light-text-color: #666666;
+
+    --white-color: #ffffff;
+    --black-color: #000000;
+
+    --light-bg-color: #f8f9fa;
+    --border-color: #dddddd;
+
+    --font-family: 'Poppins', sans-serif;
+
+    --font-regular: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+
+    --radius-sm: 5px;
+    --radius-md: 10px;
+    --radius-lg: 20px;
+
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+    --transition: 0.3s ease;
+
+    --container-width: 1400px;
+}
+
+
+/*RESET*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*HTML */
+
+html {
+    scroll-behavior: smooth;
+}
+
+/*BODY*/
+
+body {
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background-color: var(--white-color);
+    overflow-x: hidden;
+}
+
+/*COMMON ELEMENTS*/
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+    font-family: var(--font-family);
+}
+
+button {
+    cursor: pointer;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+/*COMMON CONTAINER */
+
+.container {
+    width: min(100% - 40px, var(--container-width));
+    margin: 0 auto;
+}
+
+/* RESPONSIVE CONTAINER */
+
+@media (max-width: 768px) {
+
+    .container {
+        width: min(100% - 30px, var(--container-width));
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .container {
+        width: min(100% - 24px, var(--container-width));
+    }
+}

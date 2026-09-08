@@ -1,0 +1,461 @@
+/* =========================
+   ABOUT SECTION
+========================= */
+
+.about-section {
+  width: 100%;
+  padding: 75px 0 80px;
+
+  background: var(--white-color);
+
+  overflow: hidden;
+}
+
+.about-container {
+  width: min(1780px, 92%);
+
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 0.98fr 1.02fr;
+
+  align-items: center;
+
+  gap: 70px;
+}
+
+
+/* =========================
+   LEFT CONTENT
+========================= */
+
+.about-content {
+  width: 100%;
+  max-width: 850px;
+}
+
+.about-title {
+  margin: 0 0 38px;
+
+  font-family: var(--font-family);
+
+  font-size: 60px;
+  line-height: 1.15;
+
+  font-weight: var(--font-regular);
+
+  color: var(--heading-color);
+}
+
+.about-description {
+  margin: 0;
+
+  font-family: var(--font-family);
+
+  font-size: 22px;
+  line-height: 1.75;
+
+  font-weight: var(--font-regular);
+
+  color: #526070;
+}
+
+.about-button {
+  margin-top: 30px;
+
+  min-width: 365px;
+
+  padding: 16px 30px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 14px;
+
+  border: none;
+  border-radius: 7px;
+
+  background: var(--primary-color);
+
+  color: var(--white-color);
+
+  font-family: var(--font-family);
+
+  font-size: 20px;
+  font-weight: var(--font-medium);
+
+  cursor: pointer;
+
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    background var(--transition);
+}
+
+.about-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.about-button-icon {
+  font-size: 16px;
+
+  transition: transform var(--transition);
+}
+
+.about-button:hover .about-button-icon {
+  transform: translateX(5px);
+}
+
+
+/* =========================
+   RIGHT VISUAL
+========================= */
+
+.about-visual {
+  position: relative;
+
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-image-card {
+  position: relative;
+
+  width: 100%;
+  height: 545px;
+
+  overflow: hidden;
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.08);
+}
+
+.about-image {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  object-position: center;
+}
+
+
+/* =========================
+   ACCREDITED HOSPITALS CARD
+========================= */
+
+.about-hospital-card {
+  position: absolute;
+
+  top: 60px;
+  right: -30px;
+
+  width: 225px;
+  height: 130px;
+
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  border-radius: 12px;
+
+  background: var(--primary-color);
+
+  color: var(--white-color);
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.12);
+
+  z-index: 2;
+}
+
+.about-hospital-card strong {
+  margin-bottom: 4px;
+
+  font-family: var(--font-family);
+
+  font-size: 36px;
+  line-height: 1.1;
+
+  font-weight: var(--font-bold);
+}
+
+.about-hospital-card span {
+  font-family: var(--font-family);
+
+  font-size: 16px;
+  line-height: 1.4;
+
+  font-weight: var(--font-medium);
+}
+
+
+/* =========================
+   LARGE DESKTOP
+========================= */
+
+@media (max-width: 1500px) {
+
+  .about-container {
+    width: 92%;
+
+    gap: 55px;
+  }
+
+  .about-title {
+    font-size: 54px;
+  }
+
+  .about-description {
+    font-size: 20px;
+  }
+
+  .about-image-card {
+    height: 500px;
+  }
+
+  .about-hospital-card {
+    right: -20px;
+  }
+}
+
+
+/* =========================
+   TABLET / SMALL LAPTOP
+========================= */
+
+@media (max-width: 1100px) {
+
+  .about-section {
+    padding: 70px 0;
+  }
+
+  .about-container {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 35px;
+  }
+
+  .about-title {
+    font-size: 45px;
+
+    margin-bottom: 28px;
+  }
+
+  .about-description {
+    font-size: 18px;
+
+    line-height: 1.7;
+  }
+
+  .about-button {
+    min-width: 300px;
+
+    font-size: 17px;
+  }
+
+  .about-image-card {
+    height: 430px;
+  }
+
+  .about-hospital-card {
+    top: 45px;
+    right: -10px;
+
+    width: 195px;
+    height: 115px;
+  }
+
+  .about-hospital-card strong {
+    font-size: 31px;
+  }
+
+  .about-hospital-card span {
+    font-size: 14px;
+  }
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 850px) {
+
+  .about-section {
+    padding: 65px 0;
+  }
+
+  .about-container {
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+  }
+
+  .about-content {
+    max-width: 100%;
+  }
+
+  .about-title {
+    font-size: 45px;
+  }
+
+  .about-description {
+    font-size: 19px;
+  }
+
+  .about-image-card {
+    height: 450px;
+  }
+
+  .about-hospital-card {
+    right: 20px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  .about-section {
+    padding: 55px 0 65px;
+  }
+
+  .about-container {
+    width: 90%;
+    gap: 35px;
+  }
+
+  .about-title {
+    margin-bottom: 22px;
+    font-size: 37px;
+  }
+
+  .about-description {
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
+  .about-button {
+    width: 100%;
+    min-width: 0;
+
+    margin-top: 25px;
+
+    padding: 15px 20px;
+
+    font-size: 16px;
+  }
+
+  /* Image area */
+  .about-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    min-height: auto;
+
+    padding: 0;
+  }
+
+  /* Image */
+  .about-image-card {
+    width: 100%;
+    height: 350px;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    z-index: 1;
+  }
+
+  .about-image {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* 45+ CARD BELOW IMAGE */
+  .about-hospital-card {
+    position: relative;
+
+    top: auto;
+    right: auto;
+
+    width: 225px;
+    height: 130px;
+
+    margin-top: 30px;
+
+    padding: 15px;
+
+    flex-shrink: 0;
+
+    z-index: 2;
+  }
+
+  .about-hospital-card strong {
+    font-size: 32px;
+  }
+
+  .about-hospital-card span {
+    font-size: 15px;
+  }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 380px) {
+
+  .about-title {
+    font-size: 32px;
+  }
+
+  .about-description {
+    font-size: 16px;
+  }
+
+  .about-image-card {
+    height: 300px;
+  }
+
+  .about-hospital-card {
+    width: 210px;
+    height: 120px;
+
+    margin-top: 25px;
+  }
+
+  .about-hospital-card strong {
+    font-size: 29px;
+  }
+
+  .about-hospital-card span {
+    font-size: 14px;
+  }
+}
