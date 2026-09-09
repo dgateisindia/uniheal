@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -44,6 +43,7 @@ function Cities() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // Section heading animation
       gsap.from(".cities-title", {
         opacity: 0,
         y: 30,
@@ -56,6 +56,7 @@ function Cities() {
         },
       });
 
+      // Description animation
       gsap.from(".cities-description", {
         opacity: 0,
         y: 20,
@@ -69,6 +70,7 @@ function Cities() {
         },
       });
 
+      // City cards animation
       gsap.from(".city-card", {
         opacity: 0,
         y: 30,
@@ -94,20 +96,24 @@ function Cities() {
     >
       <div className="cities-container">
 
+        {/* Heading */}
         <h2 className="cities-title">
           India’s Most Preferred Cities for Medical Treatment
         </h2>
 
+        {/* Description */}
         <p className="cities-description">
           Discover India’s leading destinations for world-class healthcare.
           Each city offers advanced hospitals, expert specialists, and
           affordable treatment options.
         </p>
 
+        {/* Cities */}
         <div className="cities-grid">
           {cities.map((city) => (
             <div className="city-card" key={city.name}>
 
+              {/* City Image */}
               <div className="city-image-wrapper">
                 <img
                   src={city.image}
@@ -116,10 +122,12 @@ function Cities() {
                 />
               </div>
 
+              {/* City Name */}
               <h3 className="city-name">
                 {city.name}
               </h3>
 
+              {/* City Description */}
               <p className="city-description">
                 {city.description}
               </p>

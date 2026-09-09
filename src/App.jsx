@@ -2,6 +2,8 @@ import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import About from "./components/About/About";
 import Treatments from "./components/Treatments/Treatments";
+import Cities from "./components/cities/cities";
+import Hospitals from "./components/Hospitals/Hospitals";
 
 function App() {
   return (
@@ -10,6 +12,10 @@ function App() {
       <Home />
       <About />
       <Treatments />
+      <Cities />
+      <Hospitals />
+      
+      
 
       <main>
         <section id="home"></section>

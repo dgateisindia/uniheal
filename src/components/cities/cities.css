@@ -1,10 +1,6 @@
-/* =========================================
-   CITIES SECTION
-========================================= */
-
 .cities-section {
   width: 100%;
-  padding: 55px 0 80px;
+  padding: 30px 0 50px;
   background: var(--white-color);
   overflow: hidden;
 }
@@ -14,63 +10,43 @@
   margin: 0 auto;
 }
 
-
-/* =========================================
-   SECTION TITLE
-========================================= */
-
 .cities-title {
   margin: 0;
 
   text-align: center;
 
   font-family: var(--font-family);
-  font-size: 44px;
-  line-height: 1.2;
+  font-size: 30px;
+  line-height: 1.3;
   font-weight: var(--font-semibold);
 
   color: #08089a;
 }
 
-
-/* =========================================
-   SECTION DESCRIPTION
-========================================= */
-
 .cities-description {
   max-width: 1250px;
 
-  margin: 30px auto 75px;
+  margin: 24px auto 60px;
 
   text-align: center;
 
   font-family: var(--font-family);
-  font-size: 23px;
-  line-height: 1.55;
+  font-size: 16px;
+  line-height: 1.6;
   font-weight: var(--font-regular);
 
   color: #454545;
 }
-
-
-/* =========================================
-   CITIES GRID
-========================================= */
 
 .cities-grid {
   display: grid;
 
   grid-template-columns: repeat(4, 1fr);
 
-  gap: 55px;
+  gap: 40px;
 
   align-items: start;
 }
-
-
-/* =========================================
-   CITY CARD
-========================================= */
 
 .city-card {
   display: flex;
@@ -80,17 +56,11 @@
   text-align: center;
 }
 
-
-/* =========================================
-   CITY IMAGE
-========================================= */
-
 .city-image-wrapper {
   width: 185px;
   height: 185px;
 
   border-radius: 50%;
-
   overflow: hidden;
 
   border: 4px solid #e5e5e5;
@@ -99,6 +69,7 @@
 
   background: #f5f5f5;
 }
+
 
 .city-image {
   width: 100%;
@@ -111,20 +82,17 @@
   transition: transform 0.4s ease;
 }
 
+
 .city-card:hover .city-image {
   transform: scale(1.05);
 }
 
 
-/* =========================================
-   CITY NAME
-========================================= */
-
 .city-name {
-  margin: 24px 0 12px;
+  margin: 18px 0 9px;
 
   font-family: var(--font-family);
-  font-size: 25px;
+  font-size: 20px;
   line-height: 1.3;
   font-weight: var(--font-regular);
 
@@ -132,54 +100,42 @@
 }
 
 
-/* =========================================
-   CITY DESCRIPTION
-========================================= */
-
 .city-card .city-description {
   max-width: 310px;
 
   margin: 0;
 
   font-family: var(--font-family);
-  font-size: 19px;
-  line-height: 1.7;
+  font-size: 15px;
+  line-height: 1.6;
   font-weight: var(--font-regular);
 
   color: #555555;
 }
 
-
-/* =========================================
-   TABLET
-========================================= */
-
 @media (max-width: 1100px) {
 
   .cities-title {
-    font-size: 38px;
+    font-size: 28px;
   }
 
   .cities-description {
-    font-size: 20px;
-    margin-bottom: 55px;
+    font-size: 15px;
+    margin-bottom: 50px;
   }
 
   .cities-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 55px 35px;
+    gap: 50px 30px;
   }
+
 }
 
-
-/* =========================================
-   MOBILE
-========================================= */
 
 @media (max-width: 600px) {
 
   .cities-section {
-    padding: 45px 0 65px;
+    padding: 35px 0 55px;
   }
 
   .cities-container {
@@ -187,54 +143,49 @@
   }
 
   .cities-title {
-    font-size: 32px;
-    line-height: 1.25;
+    font-size: 25px;
+    line-height: 1.3;
   }
 
   .cities-description {
-    margin: 20px auto 45px;
+    margin: 18px auto 40px;
 
-    font-size: 17px;
-    line-height: 1.65;
+    font-size: 14px;
+    line-height: 1.6;
   }
 
   .cities-grid {
     grid-template-columns: 1fr;
-    gap: 45px;
+    gap: 42px;
   }
 
   .city-image-wrapper {
-    width: 165px;
-    height: 165px;
+    width: 160px;
+    height: 160px;
   }
 
   .city-name {
-    margin-top: 20px;
-
-    font-size: 23px;
+    margin-top: 17px;
+    font-size: 20px;
   }
 
   .city-card .city-description {
-    max-width: 330px;
+    max-width: 320px;
 
-    font-size: 17px;
-    line-height: 1.65;
+    font-size: 14px;
+    line-height: 1.6;
   }
+
 }
-
-
-/* =========================================
-   SMALL MOBILE
-========================================= */
 
 @media (max-width: 380px) {
 
   .cities-title {
-    font-size: 29px;
+    font-size: 23px;
   }
 
   .cities-description {
-    font-size: 16px;
+    font-size: 13px;
   }
 
   .city-image-wrapper {
@@ -243,10 +194,11 @@
   }
 
   .city-name {
-    font-size: 21px;
+    font-size: 19px;
   }
 
   .city-card .city-description {
-    font-size: 16px;
+    font-size: 13px;
   }
+
 }
