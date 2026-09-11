@@ -282,6 +282,15 @@
   flex-direction: column;
 }
 
+.contact-field > label {
+  margin-bottom: 7px;
+  font-family: var(--font-family);
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: var(--font-medium);
+  color: #0757a0;
+}
+
 .form-error {
   margin-top: 6px;
 
@@ -294,6 +303,10 @@
   color: #dc3545;
 }
 
+.required-star {
+  color: #dc3545;
+  font-weight: 600;
+}
 .captcha-error {
   margin-top: -12px;
 }

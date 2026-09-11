@@ -37,7 +37,6 @@ function Contact() {
   const [captchaChecked, setCaptchaChecked] = useState(false);
   const [captchaLoading, setCaptchaLoading] = useState(false);
 
-
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(".contact-form-card", {
@@ -73,7 +72,6 @@ function Contact() {
     setSubmitMessage("");
     setSubmitError("");
   };
-
 
   const handleFileChange = (e) => {
     const files = Array.from(e.target.files);
@@ -128,6 +126,10 @@ function Contact() {
   const validateForm = () => {
     const newErrors = {};
 
+    /* =========================
+       NAME
+    ========================= */
+
     const name = formData.name.trim();
 
     if (!name) {
@@ -137,6 +139,10 @@ function Contact() {
       newErrors.name =
         "Name must contain at least 2 characters.";
     }
+
+    /* =========================
+       EMAIL
+    ========================= */
 
     const email = formData.email.trim();
 
@@ -151,6 +157,9 @@ function Contact() {
         "Please enter a valid email address.";
     }
 
+    /* =========================
+       CONTACT NUMBER
+    ========================= */
 
     const contact = formData.contact.trim();
 
@@ -165,15 +174,28 @@ function Contact() {
         "Please enter a valid 10-digit mobile number.";
     }
 
+    /* =========================
+       COUNTRY
+    ========================= */
+
     if (!formData.country.trim()) {
       newErrors.country =
         "Please enter your country.";
     }
 
+    /* =========================
+       TREATMENT
+    ========================= */
+
     if (!formData.treatment.trim()) {
       newErrors.treatment =
         "Please enter the treatment you are looking for.";
     }
+
+    /* =========================
+       MEDICAL REPORTS
+       KEEPING EXISTING VALIDATION
+    ========================= */
 
     if (medicalReports.length === 0) {
       newErrors.medicalReports =
@@ -224,18 +246,16 @@ function Contact() {
       }
     }
 
-  
+    /* =========================
+       MEDICAL HISTORY
+       OPTIONAL - NO VALIDATION
+    ========================= */
 
-    const medicalHistory =
-      formData.medicalHistory.trim();
+    /* No validation for medicalHistory */
 
-    if (!medicalHistory) {
-      newErrors.medicalHistory =
-        "Please enter your medical history.";
-    } else if (medicalHistory.length < 10) {
-      newErrors.medicalHistory =
-        "Please provide at least 10 characters.";
-    }
+    /* =========================
+       CAPTCHA
+    ========================= */
 
     if (!captchaChecked) {
       newErrors.captcha =
@@ -247,10 +267,8 @@ function Contact() {
     return Object.keys(newErrors).length === 0;
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-
 
     const isValid = validateForm();
 
@@ -261,11 +279,9 @@ function Contact() {
     setSubmitMessage("");
     setSubmitError("");
 
-
     setIsSubmitting(true);
 
     try {
-    
       const data = new FormData();
 
       data.append(
@@ -305,7 +321,6 @@ function Contact() {
         );
       });
 
-
       const response = await fetch(
         "http://localhost:5000/api/contact",
         {
@@ -343,17 +358,13 @@ function Contact() {
         /* Reset HTML form */
 
         e.target.reset();
-      }
-
-      else {
+      } else {
         setSubmitError(
           result.message ||
             "Failed to submit your message. Please try again."
         );
       }
-    }
-
-    catch (error) {
+    } catch (error) {
       console.error(
         "Contact form submission error:",
         error
@@ -362,9 +373,7 @@ function Contact() {
       setSubmitError(
         "Unable to connect to the server. Please try again."
       );
-    }
-
-    finally {
+    } finally {
       setIsSubmitting(false);
     }
   };
@@ -394,11 +403,20 @@ function Contact() {
             onSubmit={handleSubmit}
             noValidate
           >
+
+            {/* =========================
+                NAME + EMAIL
+            ========================= */}
+
             <div className="contact-row">
 
               {/* NAME */}
 
               <div className="contact-field">
+
+                <label>
+                  Your Name
+                </label>
 
                 <input
                   type="text"
@@ -411,6 +429,7 @@ function Contact() {
                 {errors.name && (
                   <small className="form-error">
                     {errors.name}
+                    <span className="required-star"> *</span>
                   </small>
                 )}
 
@@ -419,6 +438,10 @@ function Contact() {
               {/* EMAIL */}
 
               <div className="contact-field">
+
+                <label>
+                  Your Email
+                </label>
 
                 <input
                   type="email"
@@ -431,6 +454,7 @@ function Contact() {
                 {errors.email && (
                   <small className="form-error">
                     {errors.email}
+                    <span className="required-star"> *</span>
                   </small>
                 )}
 
@@ -438,11 +462,19 @@ function Contact() {
 
             </div>
 
+            {/* =========================
+                CONTACT + COUNTRY
+            ========================= */}
+
             <div className="contact-row">
 
               {/* CONTACT */}
 
               <div className="contact-field">
+
+                <label>
+                  Your Contact Number
+                </label>
 
                 <input
                   type="tel"
@@ -456,6 +488,7 @@ function Contact() {
                 {errors.contact && (
                   <small className="form-error">
                     {errors.contact}
+                    <span className="required-star"> *</span>
                   </small>
                 )}
 
@@ -464,6 +497,10 @@ function Contact() {
               {/* COUNTRY */}
 
               <div className="contact-field">
+
+                <label>
+                  Your Country
+                </label>
 
                 <input
                   type="text"
@@ -476,6 +513,7 @@ function Contact() {
                 {errors.country && (
                   <small className="form-error">
                     {errors.country}
+                    <span className="required-star"> *</span>
                   </small>
                 )}
 
@@ -483,7 +521,15 @@ function Contact() {
 
             </div>
 
+            {/* =========================
+                TREATMENT
+            ========================= */}
+
             <div className="contact-field">
+
+              <label>
+                What Medical Treatment are you looking for?
+              </label>
 
               <input
                 type="text"
@@ -497,10 +543,16 @@ function Contact() {
               {errors.treatment && (
                 <small className="form-error">
                   {errors.treatment}
+                  <span className="required-star"> *</span>
                 </small>
               )}
 
             </div>
+
+            {/* =========================
+                MEDICAL REPORTS
+                NO OTHER CHANGES
+            ========================= */}
 
             <div className="contact-upload">
 
@@ -520,12 +572,22 @@ function Contact() {
               {errors.medicalReports && (
                 <small className="form-error">
                   {errors.medicalReports}
+                  <span className="required-star"> *</span>
                 </small>
               )}
 
             </div>
 
+            {/* =========================
+                MEDICAL HISTORY
+                OPTIONAL
+            ========================= */}
+
             <div className="contact-field">
+
+              <label>
+                Your Medical History Details
+              </label>
 
               <textarea
                 name="medicalHistory"
@@ -534,13 +596,11 @@ function Contact() {
                 placeholder="Your Medical History Details"
               ></textarea>
 
-              {errors.medicalHistory && (
-                <small className="form-error">
-                  {errors.medicalHistory}
-                </small>
-              )}
-
             </div>
+
+            {/* =========================
+                CAPTCHA
+            ========================= */}
 
             <div
               className={`contact-captcha ${
@@ -606,17 +666,23 @@ function Contact() {
               </small>
             )}
 
+            {/* SUCCESS */}
+
             {submitMessage && (
               <div className="submit-success">
                 ✓ {submitMessage}
               </div>
             )}
 
+            {/* ERROR */}
+
             {submitError && (
               <div className="submit-error">
                 {submitError}
               </div>
             )}
+
+            {/* SUBMIT */}
 
             <button
               type="submit"
@@ -632,7 +698,13 @@ function Contact() {
 
         </div>
 
+        {/* =========================
+            CONTACT INFORMATION
+        ========================= */}
+
         <div className="contact-info">
+
+          {/* ADDRESS */}
 
           <a
             href="https://www.google.com/maps/search/?api=1&query=JP+Royale+Complex+Malleswaram+Bengaluru+560003"
@@ -660,6 +732,8 @@ function Contact() {
 
           </a>
 
+          {/* EMAIL */}
+
           <a
             href="mailto:medical@unihealhealth.com"
             className="contact-info-item contact-info-link"
@@ -682,6 +756,8 @@ function Contact() {
             </div>
 
           </a>
+
+          {/* WHATSAPP */}
 
           <a
             href="https://wa.me/919538564300"
