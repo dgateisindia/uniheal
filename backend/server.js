@@ -6,6 +6,7 @@ require("dotenv").config();
 require("./config/db");
 
 const contactRoutes = require("./routes/contactRoutes");
+const adminRoutes = require("./routes/adminRoutes");
 
 const app = express();
 
@@ -32,6 +33,15 @@ app.use(
 app.use(
   "/api/contact",
   contactRoutes
+);
+
+/* =========================================
+   ADMIN ROUTES
+========================================= */
+
+app.use(
+  "/api/admin",
+  adminRoutes
 );
 
 /* =========================================
