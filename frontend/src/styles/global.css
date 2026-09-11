@@ -111,3 +111,14 @@ ol {
         width: min(100% - 24px, var(--container-width));
     }
 }
+
+#home,
+#about,
+#cities,
+#hospitals,
+#doctors,
+#journey,
+#faq,
+#contact {
+  scroll-margin-top: 120px;
+}

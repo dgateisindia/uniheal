@@ -63,7 +63,7 @@ function Header() {
   const navItems = [
     { name: "Home", id: "home" },
     { name: "About Us", id: "about" },
-    { name: "Specialities", id: "specialities" },
+    { name: "Treatments", id: "specialities" },
     { name: "Cities", id: "cities" },
     { name: "Hospitals", id: "hospitals" },
     { name: "Doctors", id: "doctors" },

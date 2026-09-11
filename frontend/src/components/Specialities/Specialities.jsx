@@ -33,6 +33,18 @@ function Specialities() {
   const pageRef = useRef(null);
   const navigate = useNavigate();
 
+  /* =========================
+     SCROLL TO TOP
+  ========================= */
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
+  }, []);
+
   const specialities = [
     {
       title: "Cancer Treatment",
