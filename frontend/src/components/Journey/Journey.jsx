@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -111,12 +112,17 @@ function Journey() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      /* Title animation */
+
+      /* =========================================
+         TITLE ANIMATION
+      ========================================= */
+
       gsap.from(".journey-title", {
         opacity: 0,
         y: 20,
         duration: 0.8,
         ease: "power3.out",
+
         scrollTrigger: {
           trigger: ".journey-section",
           start: "top 80%",
@@ -124,19 +130,25 @@ function Journey() {
         },
       });
 
-      /* Steps animation */
+
+      /* =========================================
+         STEPS ANIMATION
+      ========================================= */
+
       gsap.from(".journey-step", {
         opacity: 0,
         y: 15,
         duration: 0.6,
         stagger: 0.08,
         ease: "power3.out",
+
         scrollTrigger: {
           trigger: ".journey-track",
           start: "top 82%",
           once: true,
         },
       });
+
     }, sectionRef);
 
     return () => ctx.revert();
@@ -145,46 +157,71 @@ function Journey() {
   return (
     <section
       className="journey-section"
+      id="journey"
       ref={sectionRef}
     >
+
       <div className="journey-container">
 
-        {/* Section Heading */}
+        {/* =========================================
+            SECTION HEADING
+        ========================================= */}
+
         <h2 className="journey-title">
           Your Journey With UniHeal
         </h2>
 
-        {/* Horizontal Scroll Area */}
+
+        {/* =========================================
+            HORIZONTAL SCROLL AREA
+        ========================================= */}
+
         <div className="journey-scroll">
 
           <div className="journey-track">
 
-            {/* Connecting Line */}
+            {/* =====================================
+                CONNECTING LINE
+            ===================================== */}
+
             <div className="journey-line"></div>
 
-            {/* Journey Steps */}
+
+            {/* =====================================
+                JOURNEY STEPS
+            ===================================== */}
+
             {journeySteps.map((step) => (
               <div
                 className="journey-step"
                 key={step.number}
               >
-                {/* Icon */}
+
+                {/* ICON */}
+
                 <div className="journey-icon">
+
                   <img
                     src={step.image}
-                    alt={step.number}
+                    alt={`Journey step ${step.number}`}
                   />
+
                 </div>
 
-                {/* Number */}
+
+                {/* NUMBER */}
+
                 <div className="journey-number">
                   {step.number}
                 </div>
 
-                {/* Title */}
+
+                {/* TITLE */}
+
                 <h3 className="journey-step-title">
                   {step.title}
                 </h3>
+
               </div>
             ))}
 
@@ -193,6 +230,7 @@ function Journey() {
         </div>
 
       </div>
+
     </section>
   );
 }

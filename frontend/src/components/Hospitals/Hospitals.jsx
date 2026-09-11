@@ -92,6 +92,21 @@ function Hospitals() {
     },
   ];
 
+  /* ==========================================================
+     SCROLL TO CONTACT SECTION
+     ========================================================== */
+
+  const handleAssistance = () => {
+    const section = document.getElementById("contact");
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Only animate the section title
@@ -143,7 +158,6 @@ function Hospitals() {
       id="hospitals"
       ref={sectionRef}
     >
-
       <div className="hospitals-container">
 
         <div className="hospitals-header">
@@ -151,7 +165,6 @@ function Hospitals() {
             Top Hospitals in India
           </h2>
         </div>
-
 
         <div className="hospitals-content">
 
@@ -173,7 +186,6 @@ function Hospitals() {
                     />
                   </div>
 
-
                   <div className="hospital-details">
 
                     <div className="hospital-name-row">
@@ -189,11 +201,9 @@ function Hospitals() {
 
                     </div>
 
-
                     <p className="hospital-city">
                       {hospital.city}
                     </p>
-
 
                     <p className="hospital-accreditation">
                       {hospital.accreditation}
@@ -207,6 +217,11 @@ function Hospitals() {
             </div>
 
           </div>
+
+
+          {/* ==================================================
+              HOSPITAL ASSISTANCE
+              ================================================== */}
 
           <div className="hospital-assistance">
 
@@ -225,6 +240,7 @@ function Hospitals() {
             <button
               type="button"
               className="assistance-button"
+              onClick={handleAssistance}
             >
               Get Free Assistance
             </button>
@@ -234,6 +250,11 @@ function Hospitals() {
         </div>
 
       </div>
+
+
+      {/* =====================================================
+          HOSPITAL LOGO MARQUEE
+          ===================================================== */}
 
       <div className="hospital-marquee">
 
@@ -246,10 +267,12 @@ function Hospitals() {
                 className="hospital-logo-item"
                 key={`first-${logo.name}`}
               >
+
                 <img
                   src={logo.image}
                   alt={logo.name}
                 />
+
               </div>
             ))}
 
@@ -266,10 +289,12 @@ function Hospitals() {
                 className="hospital-logo-item"
                 key={`second-${logo.name}`}
               >
+
                 <img
                   src={logo.image}
                   alt=""
                 />
+
               </div>
             ))}
 

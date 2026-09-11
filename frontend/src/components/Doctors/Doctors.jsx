@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react";
+
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import "./Doctors.css";
 
 import ajayImage from "../../assets/images/doctors/Ajay.webp";
@@ -69,6 +71,23 @@ function Doctors() {
     },
   ];
 
+  /*
+    ==========================================================
+    SCROLL TO CONTACT SECTION
+    ==========================================================
+  */
+
+  const handleContactNavigation = () => {
+    const section = document.getElementById("contact");
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(".doctors-title", {
@@ -100,16 +119,24 @@ function Doctors() {
         </h2>
 
         <div className="doctors-grid">
+
           {doctors.map((doctor) => (
-            <div className="doctor-card" key={doctor.name}>
+
+            <div
+              className="doctor-card"
+              key={doctor.name}
+            >
 
               <div className="doctor-image-wrapper">
+
                 <img
                   src={doctor.image}
                   alt={doctor.name}
                   className="doctor-image"
                 />
+
               </div>
+
 
               <div className="doctor-details">
 
@@ -117,17 +144,25 @@ function Doctors() {
                   {doctor.name}
                 </h3>
 
+
                 <p className="doctor-specialization">
                   {doctor.specialization}
                 </p>
+
 
                 <p className="doctor-experience">
                   {doctor.experience}
                 </p>
 
+
+                {/* ==========================================
+                    GET IN TOUCH BUTTON
+                    ========================================== */}
+
                 <button
                   type="button"
                   className="doctor-contact"
+                  onClick={handleContactNavigation}
                 >
                   Get In Touch
                 </button>
@@ -135,7 +170,9 @@ function Doctors() {
               </div>
 
             </div>
+
           ))}
+
         </div>
 
       </div>

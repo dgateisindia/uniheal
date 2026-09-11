@@ -8,7 +8,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 function FAQs() {
   const sectionRef = useRef(null);
-
   const [openIndex, setOpenIndex] = useState(null);
 
   const faqs = [
@@ -73,9 +72,9 @@ function FAQs() {
     },
   ];
 
-  // =========================================
-  // GSAP SECTION ANIMATION
-  // =========================================
+  /* =========================
+     GSAP ANIMATION
+  ========================= */
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -84,7 +83,6 @@ function FAQs() {
         y: 20,
         duration: 0.8,
         ease: "power3.out",
-
         scrollTrigger: {
           trigger: ".faqs-section",
           start: "top 80%",
@@ -98,7 +96,6 @@ function FAQs() {
         duration: 0.6,
         stagger: 0.08,
         ease: "power3.out",
-
         scrollTrigger: {
           trigger: ".faqs-list",
           start: "top 82%",
@@ -110,9 +107,9 @@ function FAQs() {
     return () => ctx.revert();
   }, []);
 
-  // =========================================
-  // OPEN / CLOSE FAQ
-  // =========================================
+  /* =========================
+     OPEN / CLOSE FAQ
+  ========================= */
 
   const toggleFAQ = (index) => {
     setOpenIndex((previousIndex) =>
@@ -123,21 +120,16 @@ function FAQs() {
   return (
     <section
       className="faqs-section"
-      id="faqs"
+      id="faq"
       ref={sectionRef}
     >
       <div className="faqs-container">
-
-        {/* TITLE */}
 
         <h2 className="faqs-title">
           Frequently Asked Questions
         </h2>
 
-        {/* FAQ LIST */}
-
         <div className="faqs-list">
-
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
 
@@ -148,9 +140,6 @@ function FAQs() {
                 }`}
                 key={index}
               >
-
-                {/* QUESTION */}
-
                 <button
                   type="button"
                   className="faq-question"
@@ -166,8 +155,6 @@ function FAQs() {
                   </span>
                 </button>
 
-                {/* ANSWER */}
-
                 <div
                   className={`faq-answer-wrapper ${
                     isOpen ? "show" : ""
@@ -177,11 +164,9 @@ function FAQs() {
                     {faq.answer}
                   </div>
                 </div>
-
               </div>
             );
           })}
-
         </div>
 
       </div>

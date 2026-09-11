@@ -1,0 +1,972 @@
+.admin-dashboard {
+  min-height: 100vh;
+  background: #f5fafa;
+  color: var(--text-color);
+  font-family: var(--font-family);
+}
+
+.admin-dashboard-header {
+  width: 100%;
+  min-height: 78px;
+  padding: 14px 40px;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: var(--white-color);
+  border-bottom: 1px solid #e3eeee;
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.admin-brand {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.admin-brand img {
+  width: 145px;
+  height: auto;
+  object-fit: contain;
+}
+
+.admin-brand-text {
+  padding-left: 22px;
+  border-left: 1px solid #dddddd;
+}
+
+.admin-brand-text h1 {
+  margin: 0 0 3px;
+  color: var(--heading-color);
+  font-size: 18px;
+  font-weight: var(--font-semibold);
+}
+
+.admin-brand-text span {
+  color: #888888;
+  font-size: 11px;
+}
+
+.admin-header-right {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.admin-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-user-icon {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--primary-color);
+  color: var(--white-color);
+
+  font-size: 14px;
+  font-weight: var(--font-semibold);
+}
+
+.admin-user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.admin-user-details strong {
+  color: var(--text-color);
+  font-size: 12px;
+}
+
+.admin-user-details span {
+  color: #999999;
+  font-size: 10px;
+}
+
+.admin-logout-button {
+  padding: 9px 18px;
+
+  border: 1px solid #dddddd;
+  border-radius: 7px;
+
+  background: var(--white-color);
+  color: #555555;
+
+  font-family: var(--font-family);
+  font-size: 12px;
+  font-weight: var(--font-medium);
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.admin-logout-button:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.admin-dashboard-content {
+  width: min(1450px, calc(100% - 80px));
+  margin: 0 auto;
+
+  padding: 40px 0 60px;
+}
+
+.admin-page-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 25px;
+
+  margin-bottom: 28px;
+}
+
+.admin-page-heading h2 {
+  margin: 0 0 6px;
+
+  color: var(--heading-color);
+  font-size: 25px;
+  font-weight: var(--font-semibold);
+}
+
+.admin-page-heading p {
+  margin: 0;
+
+  color: #777777;
+  font-size: 12px;
+}
+
+.submission-count {
+  min-width: 135px;
+
+  padding: 14px 18px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+
+  background: var(--white-color);
+  border: 1px solid #e1eeee;
+  border-radius: 9px;
+
+  text-align: right;
+}
+
+.submission-count span {
+  color: #888888;
+  font-size: 10px;
+}
+
+.submission-count strong {
+  color: var(--primary-color);
+  font-size: 22px;
+  font-weight: var(--font-semibold);
+}
+
+
+.admin-status {
+  min-height: 250px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  color: #777777;
+}
+
+.admin-loader {
+  width: 32px;
+  height: 32px;
+
+  margin-bottom: 12px;
+
+  border: 3px solid #dceeee;
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+
+  animation: adminSpin 0.8s linear infinite;
+}
+
+@keyframes adminSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.admin-status p {
+  margin: 0;
+  font-size: 12px;
+}
+
+.admin-error {
+  padding: 16px;
+
+  border: 1px solid #f0c4c4;
+  border-radius: 8px;
+
+  background: #fff3f3;
+  color: #dc3545;
+
+  font-size: 13px;
+}
+
+.admin-empty {
+  padding: 70px 20px;
+
+  background: var(--white-color);
+  border: 1px solid #e4eeee;
+  border-radius: 12px;
+
+  text-align: center;
+}
+
+.admin-empty-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.admin-empty h3 {
+  margin: 0 0 6px;
+
+  color: var(--heading-color);
+  font-size: 18px;
+}
+
+.admin-empty p {
+  margin: 0;
+
+  color: #888888;
+  font-size: 12px;
+}
+
+
+.admin-table-wrapper {
+  width: 100%;
+
+  overflow-x: auto;
+
+  background: var(--white-color);
+  border: 1px solid #e1eeee;
+  border-radius: 12px;
+
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.04);
+}
+
+.admin-submissions-table {
+  width: 100%;
+  min-width: 1100px;
+
+  border-collapse: collapse;
+}
+
+.admin-submissions-table th {
+  padding: 15px 14px;
+
+  background: #f4f9f9;
+
+  border-bottom: 1px solid #e1eeee;
+
+  color: #6d7777;
+
+  font-size: 10px;
+  font-weight: var(--font-semibold);
+
+  text-align: left;
+  white-space: nowrap;
+}
+
+.admin-submissions-table td {
+  padding: 16px 14px;
+
+  border-bottom: 1px solid #eeeeee;
+
+  color: #555555;
+
+  font-size: 11px;
+
+  vertical-align: middle;
+}
+
+.admin-submissions-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-submissions-table tbody tr {
+  transition: background 0.2s ease;
+}
+
+.admin-submissions-table tbody tr:hover {
+  background: #fbfdfd;
+}
+
+.submission-id {
+  color: var(--primary-color);
+  font-weight: var(--font-semibold);
+}
+
+.patient-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+
+  min-width: 170px;
+}
+
+.patient-cell strong {
+  color: var(--text-color);
+  font-size: 12px;
+}
+
+.patient-cell span {
+  color: #888888;
+  font-size: 10px;
+}
+
+.treatment-badge {
+  display: inline-block;
+
+  padding: 5px 9px;
+
+  border-radius: 20px;
+
+  background: #e8f7f4;
+  color: #168276;
+
+  font-size: 10px;
+  font-weight: var(--font-medium);
+
+  white-space: nowrap;
+}
+
+.report-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.report-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.report-count {
+  color: #168276;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.report-view-button {
+  padding: 5px 9px;
+
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+
+  background: transparent;
+  color: var(--primary-color);
+
+  font-family: var(--font-family);
+  font-size: 9px;
+  font-weight: var(--font-medium);
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.report-view-button:hover {
+  background: var(--primary-color);
+  color: var(--white-color);
+}
+
+.no-report {
+  color: #999999;
+  font-size: 10px;
+}
+
+.date-cell {
+  min-width: 125px;
+
+  color: #777777 !important;
+
+  line-height: 1.5;
+}
+
+.view-details-button {
+  padding: 7px 14px;
+
+  border: 1px solid var(--primary-color);
+  border-radius: 6px;
+
+  background: transparent;
+  color: var(--primary-color);
+
+  font-family: var(--font-family);
+  font-size: 10px;
+  font-weight: var(--font-medium);
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.view-details-button:hover {
+  background: var(--primary-color);
+  color: var(--white-color);
+}
+
+.admin-mobile-cards {
+  display: none;
+}
+
+.admin-patient-card {
+  padding: 18px;
+
+  background: var(--white-color);
+  border: 1px solid #e1eeee;
+  border-radius: 11px;
+
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+}
+
+.patient-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 12px;
+
+  padding-bottom: 14px;
+
+  border-bottom: 1px solid #eeeeee;
+}
+
+.patient-card-id {
+  color: var(--primary-color);
+  font-size: 10px;
+  font-weight: var(--font-medium);
+}
+
+.patient-card-top h3 {
+  margin: 3px 0 0;
+
+  color: var(--heading-color);
+  font-size: 16px;
+  font-weight: var(--font-semibold);
+}
+
+.mobile-treatment {
+  padding: 5px 8px;
+
+  border-radius: 20px;
+
+  background: #e8f7f4;
+  color: #168276;
+
+  font-size: 9px;
+  font-weight: var(--font-medium);
+
+  text-align: right;
+}
+
+.patient-card-info {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 14px;
+
+  padding: 16px 0;
+}
+
+.patient-card-info div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.patient-card-info span {
+  color: #999999;
+  font-size: 9px;
+}
+
+.patient-card-info strong {
+  color: #555555;
+  font-size: 11px;
+  font-weight: var(--font-medium);
+
+  word-break: break-word;
+}
+
+.mobile-report-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+  margin-bottom: 10px;
+}
+
+.mobile-report-button {
+  width: 100%;
+  min-height: 38px;
+
+  border: 1px solid var(--primary-color);
+  border-radius: 7px;
+
+  background: #f8fdfc;
+  color: var(--primary-color);
+
+  font-family: var(--font-family);
+  font-size: 10px;
+  font-weight: var(--font-medium);
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.mobile-report-button:hover {
+  background: var(--primary-color);
+  color: var(--white-color);
+}
+
+.mobile-view-button {
+  width: 100%;
+  height: 42px;
+
+  border: 1px solid var(--primary-color);
+  border-radius: 7px;
+
+  background: transparent;
+  color: var(--primary-color);
+
+  font-family: var(--font-family);
+  font-size: 11px;
+  font-weight: var(--font-medium);
+
+  cursor: pointer;
+}
+
+.mobile-view-button:hover {
+  background: var(--primary-color);
+  color: var(--white-color);
+}
+
+.admin-modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 25px;
+
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.admin-modal {
+  width: 100%;
+  max-width: 720px;
+  max-height: 90vh;
+
+  display: flex;
+  flex-direction: column;
+
+  background: var(--white-color);
+
+  border-radius: 13px;
+
+  overflow: hidden;
+
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+}
+
+.admin-modal-header {
+  padding: 20px 24px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  border-bottom: 1px solid #eeeeee;
+}
+
+.admin-modal-header span {
+  color: var(--primary-color);
+  font-size: 10px;
+}
+
+.admin-modal-header h2 {
+  margin: 4px 0 0;
+
+  color: var(--heading-color);
+  font-size: 20px;
+  font-weight: var(--font-semibold);
+}
+
+.admin-modal-close {
+  width: 30px;
+  height: 30px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #f4f7f7;
+  color: #666666;
+
+  font-size: 20px;
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+.admin-modal-body {
+  padding: 24px;
+
+  overflow-y: auto;
+}
+
+.detail-section {
+  margin-bottom: 25px;
+}
+
+.detail-section:last-child {
+  margin-bottom: 0;
+}
+
+.detail-section h3 {
+  margin: 0 0 13px;
+
+  color: var(--heading-color);
+  font-size: 13px;
+  font-weight: var(--font-semibold);
+}
+
+.detail-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 15px;
+
+  padding: 16px;
+
+  background: #f8fbfb;
+
+  border-radius: 8px;
+}
+
+.detail-grid div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.detail-grid span {
+  color: #999999;
+  font-size: 9px;
+}
+
+.detail-grid strong {
+  color: #555555;
+  font-size: 11px;
+  font-weight: var(--font-medium);
+
+  word-break: break-word;
+}
+
+.medical-history {
+  margin: 0;
+
+  padding: 14px 16px;
+
+  background: #f8fbfb;
+
+  border-radius: 8px;
+
+  color: #555555;
+
+  font-size: 11px;
+
+  line-height: 1.7;
+}
+
+.report-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.report-item {
+  padding: 12px 13px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  border: 1px solid #e4eeee;
+  border-radius: 7px;
+
+  background: #fbfdfd;
+
+  font-size: 10px;
+}
+
+.report-file-info {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.report-file-info > span:first-child {
+  color: #555555;
+  font-weight: var(--font-medium);
+}
+
+.report-filename {
+  color: #777777;
+
+  word-break: break-all;
+}
+
+.report-file-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  flex-shrink: 0;
+}
+
+.report-action-button {
+  padding: 7px 11px;
+
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+
+  background: transparent;
+  color: var(--primary-color);
+
+  font-family: var(--font-family);
+  font-size: 9px;
+  font-weight: var(--font-medium);
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.report-action-button:hover {
+  background: var(--primary-color);
+  color: var(--white-color);
+}
+
+.report-action-button.download {
+  background: var(--primary-color);
+  color: var(--white-color);
+}
+
+.report-action-button.download:hover {
+  background: #118c84;
+}
+
+.no-reports-text {
+  margin: 0;
+
+  color: #999999;
+  font-size: 11px;
+}
+
+.admin-modal-footer {
+  padding: 15px 24px;
+
+  display: flex;
+  justify-content: flex-end;
+
+  border-top: 1px solid #eeeeee;
+}
+
+.modal-close-button {
+  padding: 9px 20px;
+
+  border: none;
+  border-radius: 7px;
+
+  background: var(--primary-color);
+  color: var(--white-color);
+
+  font-family: var(--font-family);
+  font-size: 11px;
+
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+
+  .admin-dashboard-header {
+    padding: 14px 22px;
+  }
+
+  .admin-brand-text {
+    display: none;
+  }
+
+  .admin-dashboard-content {
+    width: calc(100% - 44px);
+  }
+
+}
+
+@media (max-width: 700px) {
+
+  .admin-dashboard-header {
+    min-height: 65px;
+
+    padding: 10px 16px;
+  }
+
+  .admin-brand {
+    gap: 0;
+  }
+
+  .admin-brand img {
+    width: 120px;
+  }
+
+  .admin-user-details {
+    display: none;
+  }
+
+  .admin-header-right {
+    gap: 10px;
+  }
+
+  .admin-logout-button {
+    padding: 8px 12px;
+  }
+
+  .admin-dashboard-content {
+    width: calc(100% - 32px);
+
+    padding: 25px 0 40px;
+  }
+
+  .admin-page-heading {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .admin-page-heading h2 {
+    font-size: 21px;
+  }
+
+  .submission-count {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    text-align: left;
+  }
+
+  .admin-table-wrapper {
+    display: none;
+  }
+
+  .admin-mobile-cards {
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+  }
+
+  .admin-modal-overlay {
+    padding: 12px;
+  }
+
+  .admin-modal {
+    max-height: 94vh;
+  }
+
+  .admin-modal-header,
+  .admin-modal-body,
+  .admin-modal-footer {
+    padding-left: 17px;
+    padding-right: 17px;
+  }
+
+  .report-item {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .report-file-actions {
+    width: 100%;
+  }
+
+  .report-action-button {
+    flex: 1;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .admin-brand img {
+    width: 105px;
+  }
+
+  .admin-user-icon {
+    width: 32px;
+    height: 32px;
+
+    font-size: 12px;
+  }
+
+  .admin-logout-button {
+    font-size: 10px;
+  }
+
+  .patient-card-info {
+    grid-template-columns: 1fr;
+
+    gap: 11px;
+  }
+
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .patient-card-top {
+    flex-direction: column;
+  }
+
+  .mobile-treatment {
+    text-align: left;
+  }
+
+}

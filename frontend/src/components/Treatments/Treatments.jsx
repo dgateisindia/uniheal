@@ -1,9 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
-import {
-  FaArrowRight,
-  FaChevronUp,
-} from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
+
+import { useNavigate } from "react-router-dom";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -16,17 +15,12 @@ import neurosurgery from "../../assets/images/treatments/neurosurgery.png";
 import ophthalmology from "../../assets/images/treatments/ophthalmology.png";
 import heartBypass from "../../assets/images/treatments/heart-bypass.png";
 
-import cancerTreatment from "../../assets/images/treatments/cancer-treatment.png";
-import kidneyTreatment from "../../assets/images/treatments/kidney-treatment.png";
-import ivfTreatment from "../../assets/images/treatments/ivf-treatment.png";
-import roboticSurgery from "../../assets/images/treatments/robotic-surgery.png";
-import spineSurgery from "../../assets/images/treatments/spine-surgery.png";
-
 gsap.registerPlugin(ScrollTrigger);
 
 function Treatments() {
   const sectionRef = useRef(null);
-  const [showAll, setShowAll] = useState(false);
+
+  const navigate = useNavigate();
 
   const popularTreatments = [
     {
@@ -51,29 +45,6 @@ function Treatments() {
     },
   ];
 
-  const additionalTreatments = [
-    {
-      name: "Cancer Treatment",
-      image: cancerTreatment,
-    },
-    {
-      name: "Kidney Treatment",
-      image: kidneyTreatment,
-    },
-    {
-      name: "IVF Treatment",
-      image: ivfTreatment,
-    },
-    {
-      name: "Robotic Surgery",
-      image: roboticSurgery,
-    },
-    {
-      name: "Spine Surgery",
-      image: spineSurgery,
-    },
-  ];
-
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(".treatments-title", {
@@ -81,6 +52,7 @@ function Treatments() {
         y: 25,
         duration: 0.8,
         ease: "power3.out",
+
         scrollTrigger: {
           trigger: ".treatments-section",
           start: "top 80%",
@@ -92,8 +64,8 @@ function Treatments() {
     return () => ctx.revert();
   }, []);
 
-  const handleViewAll = () => {
-    setShowAll((previous) => !previous);
+  const handleSpecialities = () => {
+    navigate("/specialities");
   };
 
   return (
@@ -104,82 +76,46 @@ function Treatments() {
     >
       <div className="treatments-container">
 
+        {/* SECTION TITLE */}
         <h2 className="treatments-title">
           Popular Treatments
         </h2>
 
-        {/* FIRST FIVE + VIEW ALL */}
-        {!showAll && (
-          <div className="treatments-grid">
+        {/* TREATMENTS GRID */}
+        <div className="treatments-grid">
 
-            {popularTreatments.map((treatment) => (
-              <div
-                className="treatment-card"
-                key={treatment.name}
-              >
-                <div className="treatment-icon">
-                  <img
-                    src={treatment.image}
-                    alt={treatment.name}
-                  />
-                </div>
-
-                <h3>{treatment.name}</h3>
+          {popularTreatments.map((treatment) => (
+            <div
+              className="treatment-card"
+              key={treatment.name}
+            >
+              <div className="treatment-icon">
+                <img
+                  src={treatment.image}
+                  alt={treatment.name}
+                />
               </div>
-            ))}
 
-            <button
-              type="button"
-              className="view-all-card"
-              onClick={handleViewAll}
-            >
-              <span>
-                View All<br />
-                Treatments
-              </span>
-
-              <FaArrowRight />
-            </button>
-
-          </div>
-        )}
-
-        {/* ALL TREATMENTS */}
-        {showAll && (
-          <>
-            <div className="treatments-grid expanded-grid">
-
-              {[
-                ...popularTreatments,
-                ...additionalTreatments,
-              ].map((treatment) => (
-                <div
-                  className="treatment-card"
-                  key={treatment.name}
-                >
-                  <div className="treatment-icon">
-                    <img
-                      src={treatment.image}
-                      alt={treatment.name}
-                    />
-                  </div>
-
-                  <h3>{treatment.name}</h3>
-                </div>
-              ))}
-
+              <h3>{treatment.name}</h3>
             </div>
+          ))}
 
-            <button
-              type="button"
-              className="show-less-button"
-              onClick={handleViewAll}
-            >
-              <span>Show Less</span>
-              <FaChevronUp />
-            </button>
-          </>
-        )}
+          {/* VIEW ALL TREATMENTS */}
+          <button
+            type="button"
+            className="view-all-card"
+            onClick={handleSpecialities}
+          >
+            <span>
+              View All
+              <br />
+              Treatments
+            </span>
+
+            <FaArrowRight />
+          </button>
+
+        </div>
 
       </div>
     </section>

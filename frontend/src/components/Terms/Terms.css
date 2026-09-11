@@ -1,0 +1,283 @@
+/* =========================
+   MAIN PAGE
+========================= */
+
+.terms-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #ffffff;
+  font-family: "Poppins", sans-serif;
+  color: #666666;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.terms-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.terms-hero {
+  width: 100%;
+  background: #f8fbfd;
+  padding: 75px 0 70px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.terms-header {
+  text-align: center;
+}
+
+.terms-header h1 {
+  margin: 0 0 18px;
+
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 1.2;
+
+  color: #0757a0;
+}
+
+.terms-header p {
+  max-width: 720px;
+  margin: 0 auto;
+
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.7;
+
+  color: #666666;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.terms-content {
+  width: 100%;
+  padding: 65px 0 80px;
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+.terms-section {
+  width: 100%;
+  margin-bottom: 45px;
+}
+
+.terms-section:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================
+   SECTION HEADING
+========================= */
+
+.terms-section h2 {
+  margin: 0 0 18px;
+
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 1.4;
+
+  color: #0757a0;
+}
+
+
+/* =========================
+   PARAGRAPHS
+========================= */
+
+.terms-section p {
+  margin: 0 0 18px;
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.9;
+
+  color: #555555;
+}
+
+.terms-section p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================
+   BULLET LIST
+========================= */
+
+.terms-list {
+  margin: 18px 0 0;
+  padding-left: 34px;
+
+  list-style-type: disc;
+}
+
+
+/* =========================
+   BULLET ITEMS
+========================= */
+
+.terms-list li {
+  margin-bottom: 14px;
+  padding-left: 6px;
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.8;
+
+  color: #555555;
+}
+
+.terms-list li:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================
+   BULLET COLOR
+========================= */
+
+.terms-list li::marker {
+  color: #159f96;
+  font-size: 16px;
+}
+
+
+/* =========================
+   EMAIL LINK
+========================= */
+
+.terms-section a {
+  color: #159f96;
+  text-decoration: none;
+  font-weight: 500;
+
+  transition: color 0.3s ease;
+}
+
+.terms-section a:hover {
+  color: #0757a0;
+  text-decoration: underline;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 992px) {
+
+  .terms-hero {
+    padding: 60px 0;
+  }
+
+  .terms-header h1 {
+    font-size: 36px;
+  }
+
+  .terms-header p {
+    font-size: 17px;
+  }
+
+  .terms-content {
+    padding: 55px 0 65px;
+  }
+
+  .terms-section {
+    margin-bottom: 40px;
+  }
+
+  .terms-section h2 {
+    font-size: 23px;
+  }
+
+  .terms-section p,
+  .terms-list li {
+    font-size: 15px;
+  }
+
+  .terms-list {
+    padding-left: 30px;
+  }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 576px) {
+
+  .terms-container {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .terms-hero {
+    padding: 45px 0 40px;
+  }
+
+  .terms-header h1 {
+    font-size: 30px;
+    margin-bottom: 14px;
+  }
+
+  .terms-header p {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .terms-content {
+    padding: 40px 0 50px;
+  }
+
+  .terms-section {
+    margin-bottom: 35px;
+  }
+
+  .terms-section h2 {
+    font-size: 20px;
+    line-height: 1.4;
+    margin-bottom: 14px;
+  }
+
+  .terms-section p,
+  .terms-list li {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .terms-list {
+    margin-top: 15px;
+    padding-left: 24px;
+  }
+
+  .terms-list li {
+    padding-left: 4px;
+    margin-bottom: 12px;
+  }
+
+  .terms-list li::marker {
+    font-size: 14px;
+  }
+
+}

@@ -26,11 +26,33 @@ function Home() {
   const counterRefs = useRef([]);
 
 
+  /* ==========================================================
+     SCROLL TO CONTACT SECTION
+     ========================================================== */
+
+  const handleContactNavigation = () => {
+
+    const section = document.getElementById("contact");
+
+    if (section) {
+
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+
+    }
+
+  };
+
+
   useEffect(() => {
 
     const ctx = gsap.context(() => {
 
-      /* DECORATIVE CIRCLE ANIMATION */
+      /* ======================================================
+         DECORATIVE CIRCLE ANIMATION
+         ====================================================== */
 
       gsap.to(circleOneRef.current, {
         x: 25,
@@ -41,6 +63,7 @@ function Home() {
         yoyo: true,
       });
 
+
       gsap.to(circleTwoRef.current, {
         x: -20,
         y: 25,
@@ -49,6 +72,7 @@ function Home() {
         repeat: -1,
         yoyo: true,
       });
+
 
       gsap.to(circleThreeRef.current, {
         x: 15,
@@ -60,7 +84,9 @@ function Home() {
       });
 
 
-      /* HERO CONTENT ANIMATION */
+      /* ======================================================
+         HERO CONTENT ANIMATION
+         ====================================================== */
 
       gsap.from(".home-content > *", {
         opacity: 0,
@@ -79,7 +105,10 @@ function Home() {
         ease: "power3.out",
       });
 
-      /*STATISTICS COUNTER*/
+
+      /* ======================================================
+         STATISTICS COUNTER
+         ====================================================== */
 
       counterRefs.current.forEach((counter) => {
 
@@ -129,7 +158,9 @@ function Home() {
       ref={sectionRef}
     >
 
-      {/* BACKGROUND IMAGE */}
+      {/* =====================================================
+          BACKGROUND IMAGE
+          ===================================================== */}
 
       <div
         className="home-background"
@@ -138,17 +169,21 @@ function Home() {
         }}
       ></div>
 
+
       <div className="home-background-overlay"></div>
+
 
       <div className="home-container">
 
 
-        {/* LEFT CONTENT */}
+        {/* ===================================================
+            LEFT CONTENT
+            =================================================== */}
 
         <div className="home-content">
 
 
-          {/* Trusted Badge */}
+          {/* TRUSTED BADGE */}
 
           <div className="home-badge">
 
@@ -163,7 +198,7 @@ function Home() {
           </div>
 
 
-          {/* Main Heading */}
+          {/* MAIN HEADING */}
 
           <h1 className="home-title">
 
@@ -180,7 +215,7 @@ function Home() {
           </h1>
 
 
-          {/* Description */}
+          {/* DESCRIPTION */}
 
           <p className="home-description">
 
@@ -189,7 +224,10 @@ function Home() {
 
           </p>
 
-          {/*FEATURES*/}
+
+          {/* =================================================
+              FEATURES
+              ================================================= */}
 
           <div className="home-features">
 
@@ -229,7 +267,10 @@ function Home() {
 
           </div>
 
-          {/*STATISTICS*/}
+
+          {/* =================================================
+              STATISTICS
+              ================================================= */}
 
           <div className="home-stats">
 
@@ -309,17 +350,31 @@ function Home() {
           </div>
 
 
-          {/* CTA BUTTONS */}
+          {/* =================================================
+              CTA BUTTONS
+              ================================================= */}
 
           <div className="home-cta">
 
 
-            <button className="home-cta-primary">
+            {/* GET FREE MEDICAL OPINION */}
+
+            <button
+              type="button"
+              className="home-cta-primary"
+              onClick={handleContactNavigation}
+            >
               Get Free Medical Opinion
             </button>
 
 
-            <button className="home-cta-secondary">
+            {/* GET TREATMENT COST */}
+
+            <button
+              type="button"
+              className="home-cta-secondary"
+              onClick={handleContactNavigation}
+            >
               Get Treatment Cost
             </button>
 
@@ -330,12 +385,14 @@ function Home() {
         </div>
 
 
-        {/*RIGHT IMAGE */}
+        {/* ===================================================
+            RIGHT IMAGE
+            =================================================== */}
 
         <div className="home-image-area">
 
 
-          {/* Animated Circle 1 */}
+          {/* ANIMATED CIRCLE 1 */}
 
           <div
             className="home-circle home-circle-one"
@@ -343,7 +400,7 @@ function Home() {
           ></div>
 
 
-          {/* Animated Circle 2 */}
+          {/* ANIMATED CIRCLE 2 */}
 
           <div
             className="home-circle home-circle-two"
@@ -351,7 +408,7 @@ function Home() {
           ></div>
 
 
-          {/* Animated Circle 3 */}
+          {/* ANIMATED CIRCLE 3 */}
 
           <div
             className="home-circle home-circle-three"
@@ -359,7 +416,7 @@ function Home() {
           ></div>
 
 
-          {/* Doctor + Patient Image */}
+          {/* DOCTOR + PATIENT IMAGE */}
 
           <div className="home-image-frame">
 
