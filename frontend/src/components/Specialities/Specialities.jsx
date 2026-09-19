@@ -52,7 +52,6 @@ function Specialities() {
         "India is a global hub for cancer treatment for international patients, offering advanced options such as immunotherapy, targeted therapy, proton therapy, and bone marrow transplant.",
       image: cancer,
       icon: FaMicroscope,
-      button: "Learn More",
     },
     {
       title: "Joint Replacement Surgery",
@@ -60,7 +59,6 @@ function Specialities() {
         "Advanced joint replacement procedures that restore mobility and eliminate chronic pain. Personalized care ensures faster recovery and long-lasting joint function.",
       image: jointReplacement,
       icon: FaBone,
-      button: "Get Medical Opinion Now",
     },
     {
       title: "Pediatric Heart Surgery",
@@ -68,7 +66,6 @@ function Specialities() {
         "Specialized heart surgeries for infants and children, performed by expert pediatric cardiac surgeons. Focused on safety, precision, and giving young hearts a healthy future.",
       image: pediatricHeartSurgery,
       icon: FaHeartbeat,
-      button: "Get Medical Opinion Now",
     },
     {
       title: "Spine Surgery",
@@ -76,7 +73,6 @@ function Specialities() {
         "Comprehensive spine treatments that address pain, nerve compression, and structural issues. Minimally invasive options ensure quicker recovery and improved mobility.",
       image: spineSurgery,
       icon: FaUserMd,
-      button: "Get Medical Opinion Now",
     },
     {
       title: "Neurosurgery",
@@ -84,7 +80,6 @@ function Specialities() {
         "Cutting-edge neurosurgical care for brain, spine, and nerve disorders. Expert surgeons use advanced technology for safe, precise, and life-enhancing outcomes.",
       image: neurosurgery,
       icon: FaBrain,
-      button: "Get Medical Opinion Now",
     },
     {
       title: "Heart Treatment",
@@ -92,7 +87,6 @@ function Specialities() {
         "Complete cardiac care ranging from diagnosis to advanced interventional procedures. Designed to improve heart health, prevent complications, and support long-term well-being.",
       image: heartTreatment,
       icon: FaHeart,
-      button: "Get Medical Opinion Now",
     },
   ];
 
@@ -243,65 +237,11 @@ function Specialities() {
                       {speciality.description}
                     </p>
 
-                    <button
-                      type="button"
-                      className="speciality-button"
-                      onClick={handleMedicalOpinion}
-                    >
-
-                      <span>
-                        {speciality.button}
-                      </span>
-
-                      <FaArrowRight />
-
-                    </button>
-
                   </div>
 
                 </article>
               );
             })}
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* =========================
-          CTA
-      ========================= */}
-
-      <section className="specialities-cta">
-
-        <div className="specialities-container">
-
-          <div className="specialities-cta-content">
-
-            <h2>
-              Get the Right Medical Treatment
-            </h2>
-
-            <p>
-              Connect with our healthcare experts and get personalized
-              guidance for your treatment journey.
-            </p>
-
-            <button
-              type="button"
-              className="specialities-main-button"
-              onClick={handleMedicalOpinion}
-            >
-
-              <span>
-                Get Medical Opinion Now
-              </span>
-
-              <FaArrowRight />
-
-            </button>
 
           </div>
 

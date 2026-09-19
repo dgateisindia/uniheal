@@ -3,9 +3,16 @@
 ========================================= */
 
 .header {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
     width: 100%;
-    position: relative;
-    z-index: 1000;
+
+    z-index: 9999;
+
+    background-color: var(--white-color);
 }
 
 
@@ -17,6 +24,7 @@
     position: relative;
 
     width: 100%;
+
     height: 50px;
     min-height: 50px;
     max-height: 50px;
@@ -25,23 +33,20 @@
     color: var(--white-color);
 
     box-sizing: border-box;
-
-    overflow: visible;
 }
 
 .top-bar-container {
     position: relative;
 
-    width: 100%;
-    max-width: var(--container-width);
+    width: min(100% - 40px, var(--container-width));
 
     height: 50px;
 
     margin: 0 auto;
-    padding: 0 30px;
 
-    display: flex !important;
-    align-items: center !important;
+    display: flex;
+
+    align-items: center;
 
     box-sizing: border-box;
 }
@@ -52,21 +57,19 @@
 ========================================= */
 
 .contact-info {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
+    display: flex;
+
+    align-items: center;
 
     gap: 35px;
 
     height: 50px;
-
-    flex-shrink: 0;
 }
 
 .contact-info a {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
+    display: flex;
+
+    align-items: center;
 
     gap: 8px;
 
@@ -75,24 +78,21 @@
     color: var(--white-color);
 
     font-family: var(--font-family);
+
     font-size: 14px;
+
     font-weight: var(--font-medium);
 
     text-decoration: none;
+
     white-space: nowrap;
-
-    flex-shrink: 0;
-
-    box-sizing: border-box;
 
     transition: var(--transition);
 }
 
 .contact-info a svg {
-    display: block !important;
-
-    width: 17px !important;
-    height: 17px !important;
+    width: 17px;
+    height: 17px;
 
     flex-shrink: 0;
 }
@@ -107,85 +107,49 @@
 ========================================= */
 
 .social-links {
-    position: absolute !important;
+    position: absolute;
 
     top: 0;
-    right: 30px;
+    right: 0;
 
-    width: 120px !important;
-    height: 50px !important;
+    width: 120px;
+    height: 50px;
 
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
+    display: flex;
 
-    align-items: center !important;
-    justify-content: space-between !important;
+    align-items: center;
 
-    margin: 0 !important;
-    padding: 0 !important;
-
-    box-sizing: border-box;
-
-    z-index: 10;
+    justify-content: space-between;
 }
 
 .social-links a {
-    position: relative !important;
+    display: flex;
 
-    display: flex !important;
-    flex-direction: row !important;
+    align-items: center;
 
-    align-items: center !important;
-    justify-content: center !important;
+    justify-content: center;
 
-    width: 20px !important;
-    min-width: 20px !important;
-    max-width: 20px !important;
+    width: 20px;
+    height: 50px;
 
-    height: 50px !important;
-    min-height: 50px !important;
+    color: var(--white-color);
 
-    padding: 0 !important;
-    margin: 0 !important;
+    font-size: 16px;
 
-    border: none !important;
+    text-decoration: none;
 
-    color: var(--white-color) !important;
-
-    font-size: 16px !important;
-
-    text-decoration: none !important;
-
-    flex: 0 0 20px !important;
-
-    box-sizing: border-box;
-
-    opacity: 1 !important;
-
-    visibility: visible !important;
+    transition: var(--transition);
 }
 
 .social-links a svg {
-    display: block !important;
+    width: 17px;
+    height: 17px;
 
-    width: 17px !important;
-    height: 17px !important;
-
-    min-width: 17px !important;
-    min-height: 17px !important;
-
-    color: var(--white-color) !important;
-
-    fill: currentColor !important;
-
-    opacity: 1 !important;
-
-    visibility: visible !important;
+    fill: currentColor;
 }
 
 .social-links a:hover {
-    opacity: 0.75 !important;
+    opacity: 0.75;
 }
 
 
@@ -194,6 +158,8 @@
 ========================================= */
 
 .navbar {
+    position: relative;
+
     width: 100%;
 
     background-color: var(--white-color);
@@ -207,13 +173,12 @@
 
 /* =========================================
    SCROLLED NAVBAR
+   IMPORTANT:
+   DO NOT change position here.
 ========================================= */
 
 .navbar-scrolled {
-    position: fixed;
-
-    top: 0;
-    left: 0;
+    position: relative;
 
     width: 100%;
 
@@ -221,8 +186,6 @@
 
     box-shadow:
         0 2px 10px rgba(0, 0, 0, 0.10);
-
-    z-index: 9999;
 }
 
 
@@ -238,6 +201,7 @@
     margin: 0 auto;
 
     display: flex;
+
     align-items: center;
 
     gap: 30px;
@@ -256,9 +220,11 @@
     padding: 0;
 
     border: none;
+
     background: transparent;
 
     display: flex;
+
     align-items: center;
 
     cursor: pointer;
@@ -268,6 +234,7 @@
 
 .logo-image {
     width: 105px;
+
     height: auto;
 
     object-fit: contain;
@@ -282,7 +249,9 @@
     flex: 1;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     gap: 30px;
@@ -294,12 +263,15 @@
     padding: 8px 0;
 
     border: none;
+
     background: transparent;
 
     color: var(--text-color);
 
     font-family: var(--font-family);
+
     font-size: 16px;
+
     font-weight: var(--font-medium);
 
     white-space: nowrap;
@@ -320,9 +292,11 @@
     position: absolute;
 
     left: 0;
+
     bottom: -8px;
 
     width: 0;
+
     height: 2px;
 
     background-color: var(--primary-color);
@@ -345,7 +319,7 @@
 
 
 /* =========================================
-   CONTACT US BUTTON
+   CONTACT BUTTON
 ========================================= */
 
 .contact-button {
@@ -356,10 +330,13 @@
     padding: 10px 18px;
 
     background-color: var(--primary-color);
+
     color: var(--white-color);
 
     font-family: var(--font-family);
+
     font-size: 16px;
+
     font-weight: var(--font-semibold);
 
     white-space: nowrap;
@@ -371,6 +348,7 @@
 
 .contact-button:hover {
     background-color: var(--secondary-color);
+
     color: var(--white-color);
 }
 
@@ -385,6 +363,7 @@
     padding: 5px;
 
     border: none;
+
     background: transparent;
 
     color: var(--primary-color);
@@ -433,13 +412,13 @@
     }
 
     .social-links {
-        right: 20px !important;
+        right: 0;
     }
 }
 
 
 /* =========================================
-   SMALL TABLET / MOBILE
+   TABLET / MOBILE
 ========================================= */
 
 @media (max-width: 900px) {
@@ -450,7 +429,9 @@
 
     .top-bar {
         height: 45px;
+
         min-height: 45px;
+
         max-height: 45px;
     }
 
@@ -475,31 +456,29 @@
     }
 
     .contact-info a svg {
-        width: 15px !important;
-        height: 15px !important;
+        width: 15px;
+
+        height: 15px;
     }
 
     .social-links {
-        right: 15px !important;
+        right: 15px;
 
-        width: 90px !important;
-        height: 45px !important;
+        width: 90px;
+
+        height: 45px;
     }
 
     .social-links a {
-        width: 18px !important;
-        min-width: 18px !important;
-        max-width: 18px !important;
+        width: 18px;
 
-        height: 45px !important;
-        min-height: 45px !important;
-
-        flex: 0 0 18px !important;
+        height: 45px;
     }
 
     .social-links a svg {
-        width: 15px !important;
-        height: 15px !important;
+        width: 15px;
+
+        height: 15px;
     }
 
 
@@ -511,19 +490,6 @@
         min-height: 75px;
     }
 
-    .navbar-scrolled {
-        position: fixed;
-
-        top: 0;
-        left: 0;
-
-        width: 100%;
-
-        z-index: 9999;
-
-        background-color: var(--white-color);
-    }
-
     .nav-links,
     .contact-button {
         display: none;
@@ -533,6 +499,7 @@
         display: flex;
 
         align-items: center;
+
         justify-content: center;
 
         margin-left: auto;
@@ -540,7 +507,7 @@
 
 
     /* =====================================
-       MOBILE DROPDOWN
+       MOBILE MENU
     ====================================== */
 
     .mobile-menu {
@@ -646,7 +613,6 @@
     .mobile-contact-button:hover {
         background-color: var(--secondary-color);
     }
-
 }
 
 
@@ -683,12 +649,13 @@
     }
 
     .contact-info a svg {
-        width: 13px !important;
-        height: 13px !important;
+        width: 13px;
+
+        height: 13px;
     }
 
     .social-links {
-        display: none !important;
+        display: none;
     }
 
 
@@ -702,17 +669,6 @@
         width: calc(100% - 24px);
     }
 
-    .navbar-scrolled {
-        position: fixed;
-
-        top: 0;
-        left: 0;
-
-        width: 100%;
-
-        z-index: 9999;
-    }
-
     .logo-image {
         width: 90px;
     }
@@ -720,5 +676,4 @@
     .menu-button {
         font-size: 23px;
     }
-
 }

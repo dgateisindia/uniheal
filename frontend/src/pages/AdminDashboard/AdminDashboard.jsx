@@ -5,6 +5,8 @@ import "./AdminDashboard.css";
 function AdminDashboard() {
   const navigate = useNavigate();
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const [submissions, setSubmissions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -28,7 +30,7 @@ function AdminDashboard() {
 
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_API_URL}/api/admin/submissions`,
+          `${API_URL}/api/admin/submissions`,
           {
             method: "GET",
             headers: {
@@ -120,7 +122,6 @@ function AdminDashboard() {
       .filter(Boolean);
   };
 
-
   const getReport = async (
     filename,
     action
@@ -140,7 +141,7 @@ function AdminDashboard() {
       );
 
       const response = await fetch(
-        `http://localhost:5000/api/admin/reports/${encodeURIComponent(
+        `${API_URL}/api/admin/reports/${encodeURIComponent(
           filename
         )}`,
         {
@@ -241,7 +242,6 @@ function AdminDashboard() {
   return (
     <div className="admin-dashboard">
 
-
       <header className="admin-dashboard-header">
 
         <div className="admin-brand">
@@ -264,7 +264,6 @@ function AdminDashboard() {
           </div>
 
         </div>
-
 
         <div className="admin-header-right">
 
@@ -292,7 +291,6 @@ function AdminDashboard() {
             </div>
 
           </div>
-
 
           <button
             className="admin-logout-button"
@@ -322,7 +320,6 @@ function AdminDashboard() {
 
           </div>
 
-
           <div className="submission-count">
 
             <span>
@@ -336,7 +333,6 @@ function AdminDashboard() {
           </div>
 
         </div>
-
 
         {loading && (
 
@@ -429,7 +425,6 @@ function AdminDashboard() {
 
                 </thead>
 
-
                 <tbody>
 
                   {submissions.map(
@@ -458,7 +453,6 @@ function AdminDashboard() {
 
                           </td>
 
-
                           {/* PATIENT */}
 
                           <td>
@@ -477,20 +471,17 @@ function AdminDashboard() {
 
                           </td>
 
-
                           {/* CONTACT */}
 
                           <td>
                             {submission.contact}
                           </td>
 
-
                           {/* COUNTRY */}
 
                           <td>
                             {submission.country}
                           </td>
-
 
                           {/* TREATMENT */}
 
@@ -504,7 +495,6 @@ function AdminDashboard() {
 
                           </td>
 
-
                           {/* MEDICAL REPORTS */}
 
                           <td>
@@ -512,18 +502,18 @@ function AdminDashboard() {
                             {reportFiles.length >
                             0 ? (
 
-                             <div className="report-actions">
+                              <div className="report-actions">
 
-  <span className="report-count">
-    📎{" "}
-    {reportFiles.length}{" "}
-    file
-    {reportFiles.length > 1
-      ? "s"
-      : ""}
-  </span>
+                                <span className="report-count">
+                                  📎{" "}
+                                  {reportFiles.length}{" "}
+                                  file
+                                  {reportFiles.length > 1
+                                    ? "s"
+                                    : ""}
+                                </span>
 
-    </div>
+                              </div>
 
                             ) : (
 
@@ -573,7 +563,6 @@ function AdminDashboard() {
 
           )}
 
-
         {!loading &&
           !error &&
           submissions.length > 0 && (
@@ -611,7 +600,6 @@ function AdminDashboard() {
 
                         </div>
 
-
                         <span className="mobile-treatment">
                           {
                             submission.treatment
@@ -619,7 +607,6 @@ function AdminDashboard() {
                         </span>
 
                       </div>
-
 
                       <div className="patient-card-info">
 
@@ -635,7 +622,6 @@ function AdminDashboard() {
 
                         </div>
 
-
                         <div>
 
                           <span>
@@ -648,7 +634,6 @@ function AdminDashboard() {
 
                         </div>
 
-
                         <div>
 
                           <span>
@@ -660,7 +645,6 @@ function AdminDashboard() {
                           </strong>
 
                         </div>
-
 
                         <div>
 
@@ -682,7 +666,6 @@ function AdminDashboard() {
 
                         </div>
 
-
                         <div>
 
                           <span>
@@ -698,7 +681,6 @@ function AdminDashboard() {
                         </div>
 
                       </div>
-
 
                       {/* MOBILE REPORT BUTTONS */}
 
@@ -746,7 +728,6 @@ function AdminDashboard() {
 
                       )}
 
-
                       <button
                         type="button"
                         className="mobile-view-button"
@@ -788,6 +769,7 @@ function AdminDashboard() {
               e.stopPropagation()
             }
           >
+
             <div className="admin-modal-header">
 
               <div>
@@ -806,7 +788,6 @@ function AdminDashboard() {
                 </h2>
 
               </div>
-
 
               <button
                 type="button"
@@ -832,7 +813,6 @@ function AdminDashboard() {
                   Patient Information
                 </h3>
 
-
                 <div className="detail-grid">
 
                   <div>
@@ -849,7 +829,6 @@ function AdminDashboard() {
 
                   </div>
 
-
                   <div>
 
                     <span>
@@ -863,7 +842,6 @@ function AdminDashboard() {
                     </strong>
 
                   </div>
-
 
                   <div>
 
@@ -879,7 +857,6 @@ function AdminDashboard() {
 
                   </div>
 
-
                   <div>
 
                     <span>
@@ -894,7 +871,6 @@ function AdminDashboard() {
 
                   </div>
 
-
                   <div>
 
                     <span>
@@ -908,7 +884,6 @@ function AdminDashboard() {
                     </strong>
 
                   </div>
-
 
                   <div>
 
@@ -927,7 +902,6 @@ function AdminDashboard() {
                 </div>
 
               </div>
-
 
               {/* MEDICAL HISTORY */}
 
@@ -948,7 +922,6 @@ function AdminDashboard() {
 
               </div>
 
-
               {/* MEDICAL REPORTS */}
 
               <div className="detail-section">
@@ -956,7 +929,6 @@ function AdminDashboard() {
                 <h3>
                   Medical Reports
                 </h3>
-
 
                 {getReportFiles(
                   selectedSubmission.medical_reports
@@ -986,7 +958,6 @@ function AdminDashboard() {
 
                           </div>
 
-
                           <div className="report-file-actions">
 
                             <button
@@ -1010,7 +981,6 @@ function AdminDashboard() {
                                 : "View"}
 
                             </button>
-
 
                             <button
                               type="button"

@@ -111,6 +111,44 @@ ol {
         width: min(100% - 24px, var(--container-width));
     }
 }
+    /* =========================================
+   FIXED HEADER SPACE
+========================================= */
+
+.site-content {
+    padding-top: 150px;
+}
+
+
+/* =========================================
+   TABLET / MOBILE
+========================================= */
+
+@media (max-width: 900px) {
+
+    .site-content {
+        padding-top: 120px;
+    }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+    .site-content {
+        padding-top: 115px;
+    }
+
+}
+
+
+/* =========================================
+   SECTION SCROLL OFFSET
+========================================= */
 
 #home,
 #about,
@@ -120,5 +158,45 @@ ol {
 #journey,
 #faq,
 #contact {
-  scroll-margin-top: 120px;
+    scroll-margin-top: 150px;
+}
+
+
+/* =========================================
+   TABLET / MOBILE SECTION OFFSET
+========================================= */
+
+@media (max-width: 900px) {
+
+    #home,
+    #about,
+    #cities,
+    #hospitals,
+    #doctors,
+    #journey,
+    #faq,
+    #contact {
+        scroll-margin-top: 120px;
+    }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE SECTION OFFSET
+========================================= */
+
+@media (max-width: 480px) {
+
+    #home,
+    #about,
+    #cities,
+    #hospitals,
+    #doctors,
+    #journey,
+    #faq,
+    #contact {
+        scroll-margin-top: 115px;
+    }
+
 }

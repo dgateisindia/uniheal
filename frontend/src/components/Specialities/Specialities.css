@@ -1,7 +1,3 @@
-/* =========================================================
-   SPECIALITIES PAGE
-   ========================================================= */
-
 .specialities-page {
   width: 100%;
   min-height: 100vh;
@@ -14,11 +10,6 @@
   overflow-x: hidden;
 }
 
-
-/* =========================================================
-   CONTAINER
-   ========================================================= */
-
 .specialities-container {
   width: 100%;
   max-width: 1400px;
@@ -30,11 +21,6 @@
 
   box-sizing: border-box;
 }
-
-
-/* =========================================================
-   HERO
-   ========================================================= */
 
 .specialities-hero {
   width: 100%;
@@ -82,10 +68,6 @@
   line-height: 1.8;
 }
 
-
-/* =========================================================
-   MAIN BUTTON
-   ========================================================= */
 
 .specialities-main-button {
   display: inline-flex;
@@ -140,10 +122,6 @@
 }
 
 
-/* =========================================================
-   SPECIALITIES SECTION
-   ========================================================= */
-
 .specialities-section {
   width: 100%;
 
@@ -151,11 +129,6 @@
 
   background: #ffffff;
 }
-
-
-/* =========================================================
-   GRID
-   ========================================================= */
 
 .specialities-grid {
   width: 100%;
@@ -165,24 +138,15 @@
   grid-template-columns:
     repeat(3, minmax(0, 1fr));
 
-  /*
-    Every desktop card is exactly 620px.
-  */
-  grid-auto-rows: 620px;
-
   gap: 38px;
 
-  align-items: stretch;
+  align-items: start;
 }
-
-
-/* =========================================================
-   CARD
-   ========================================================= */
 
 .speciality-card {
   width: 100%;
-  height: 620px;
+
+  height: 470px;
 
   min-width: 0;
 
@@ -202,12 +166,6 @@
   box-shadow:
     0 8px 25px rgba(0, 0, 0, 0.06);
 
-  /*
-    IMPORTANT:
-    No position/transform is applied here.
-    GSAP only changes opacity.
-  */
-
   transition:
     box-shadow 0.35s ease;
 }
@@ -217,16 +175,12 @@
     0 16px 35px rgba(0, 0, 0, 0.10);
 }
 
-
-/* =========================================================
-   IMAGE
-   ========================================================= */
-
 .speciality-image {
   position: relative;
 
   width: 100%;
-  height: 292px;
+
+  height: 250px;
 
   flex-shrink: 0;
 
@@ -326,21 +280,12 @@
    ========================================================= */
 
 .speciality-content {
-  /*
-    Card = 620px
-    Image = 292px
-    Content = 328px
-  */
-
   width: 100%;
-
-  height: 328px;
-  min-height: 328px;
 
   display: flex;
   flex-direction: column;
 
-  padding: 25px 30px 30px;
+  padding: 22px 30px 25px;
 
   box-sizing: border-box;
 }
@@ -351,12 +296,7 @@
    ========================================================= */
 
 .speciality-content h2 {
-  margin: 0 0 14px;
-
-  /*
-    Keeps title area consistent.
-  */
-  min-height: 32px;
+  margin: 0 0 12px;
 
   color: #0757a0;
 
@@ -374,12 +314,9 @@
    ========================================================= */
 
 .speciality-content p {
-  margin: 0 0 25px;
+  margin: 0;
 
-  /*
-    Same description area for every card.
-  */
-  min-height: 120px;
+  min-height: 0;
 
   color: #666666;
 
@@ -388,145 +325,27 @@
   font-size: 15px;
   font-weight: 400;
 
-  line-height: 1.75;
-}
-
-
-/* =========================================================
-   CARD BUTTON
-   ========================================================= */
-
-.speciality-button {
-  width: 100%;
-
-  min-height: 52px;
-
-  margin-top: auto;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: space-between;
-
-  padding: 0 22px;
-
-  border: 1px solid #159f96;
-
-  border-radius: 7px;
-
-  background: #159f96;
-
-  color: #ffffff;
-
-  font-family: var(--font-family);
-
-  font-size: 15px;
-  font-weight: 600;
-
-  cursor: pointer;
-
-  box-sizing: border-box;
-
-  transition:
-    background-color 0.3s ease,
-    border-color 0.3s ease,
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.speciality-button span {
-  text-align: left;
-}
-
-.speciality-button svg {
-  flex-shrink: 0;
-
-  font-size: 17px;
-
-  transition:
-    transform 0.3s ease;
-}
-
-.speciality-button:hover {
-  background: #0757a0;
-
-  border-color: #0757a0;
-
-  transform: translateY(-2px);
-
-  box-shadow:
-    0 7px 15px rgba(7, 87, 160, 0.15);
-}
-
-.speciality-button:hover svg {
-  transform: translateX(5px);
-}
-
-
-/* =========================================================
-   CTA
-   ========================================================= */
-
-.specialities-cta {
-  width: 100%;
-
-  padding: 70px 0;
-
-  background: #159f96;
-}
-
-.specialities-cta-content {
-  width: 100%;
-  max-width: 800px;
-
-  margin: 0 auto;
-
-  text-align: center;
-}
-
-.specialities-cta-content h2 {
-  margin: 0 0 15px;
-
-  color: #ffffff;
-
-  font-family: var(--font-family);
-
-  font-size: 32px;
-  font-weight: 700;
-
-  line-height: 1.3;
-}
-
-.specialities-cta-content p {
-  width: 100%;
-  max-width: 650px;
-
-  margin: 0 auto 25px;
-
-  color: #ffffff;
-
-  font-family: var(--font-family);
-
-  font-size: 15px;
-
   line-height: 1.7;
 }
 
 
 /* =========================================================
-   CTA BUTTON
+   CARD BUTTON
+   Removed from JSX
    ========================================================= */
 
-.specialities-cta .specialities-main-button {
-  background: #ffffff;
-
-  color: #159f96;
+.speciality-button {
+  display: none;
 }
 
-.specialities-cta .specialities-main-button:hover {
-  background: #0757a0;
 
-  color: #ffffff;
+/* =========================================================
+   CTA
+   Removed from JSX
+   ========================================================= */
+
+.specialities-cta {
+  display: none;
 }
 
 
@@ -613,11 +432,6 @@
   opacity: 0.75;
 }
 
-
-/* =========================================================
-   FOOTER BOTTOM
-   ========================================================= */
-
 .specialities-footer-bottom {
   padding: 20px 0;
 
@@ -638,11 +452,6 @@
   font-size: 13px;
 }
 
-
-/* =========================================================
-   LAPTOP
-   ========================================================= */
-
 @media (max-width: 1100px) {
 
   .specialities-container {
@@ -652,34 +461,24 @@
 
   .specialities-grid {
     gap: 25px;
-
-    grid-auto-rows: 620px;
   }
 
   .speciality-card {
-    height: 620px;
+    height: 470px;
   }
 
   .speciality-image {
-    height: 250px;
+    height: 240px;
   }
 
   .speciality-content {
-    height: 370px;
-    min-height: 370px;
-
-    padding: 23px;
+    padding: 22px 23px 25px;
   }
 
   .speciality-content h2 {
     font-size: 22px;
   }
 }
-
-
-/* =========================================================
-   TABLET
-   ========================================================= */
 
 @media (max-width: 850px) {
 
@@ -691,22 +490,19 @@
     grid-template-columns:
       repeat(2, minmax(0, 1fr));
 
-    grid-auto-rows: 620px;
-
     gap: 25px;
   }
 
   .speciality-card {
-    height: 620px;
+    height: 470px;
   }
 
   .speciality-image {
-    height: 250px;
+    height: 240px;
   }
 
   .speciality-content {
-    height: 370px;
-    min-height: 370px;
+    padding: 22px 23px 25px;
   }
 
   .specialities-footer-content {
@@ -716,10 +512,6 @@
   }
 }
 
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
 
 @media (max-width: 600px) {
 
@@ -748,8 +540,6 @@
   .specialities-grid {
     grid-template-columns: 1fr;
 
-    grid-auto-rows: auto;
-
     gap: 25px;
   }
 
@@ -772,14 +562,13 @@
 
   .speciality-content {
     height: auto;
+
     min-height: 0;
 
     padding: 22px 20px 25px;
   }
 
   .speciality-content h2 {
-    min-height: 0;
-
     font-size: 21px;
   }
 
@@ -791,28 +580,13 @@
     line-height: 1.7;
   }
 
-  .speciality-button {
-    min-height: 50px;
 
-    font-size: 14px;
-  }
-
-
-  /* CTA */
+  /* CTA hidden */
 
   .specialities-cta {
-    padding: 50px 0;
-  }
-
-  .specialities-cta-content h2 {
-    font-size: 26px;
+    display: none;
   }
 }
-
-
-/* =========================================================
-   SMALL MOBILE
-   ========================================================= */
 
 @media (max-width: 400px) {
 
@@ -835,10 +609,25 @@
   .speciality-content p {
     font-size: 13px;
   }
+}
 
-  .speciality-button {
-    font-size: 13px;
+.specialities-page {
+    padding-top: 150px;
+}
 
-    padding: 0 16px;
-  }
+
+@media (max-width: 900px) {
+
+    .specialities-page {
+        padding-top: 120px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .specialities-page {
+        padding-top: 115px;
+    }
+
 }

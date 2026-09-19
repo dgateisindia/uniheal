@@ -26,22 +26,27 @@ function Treatments() {
     {
       name: "Knee Replacement",
       image: kneeReplacement,
+      alt: "Knee replacement treatment in India",
     },
     {
       name: "Cardiology",
       image: cardiology,
+      alt: "Cardiology treatment and care in India",
     },
     {
       name: "Neurosurgery",
       image: neurosurgery,
+      alt: "Neurosurgery treatment in India",
     },
     {
       name: "Ophthalmology",
       image: ophthalmology,
+      alt: "Ophthalmology treatment in India",
     },
     {
       name: "Heart Bypass Surgery",
       image: heartBypass,
+      alt: "Heart bypass surgery in India",
     },
   ];
 
@@ -78,7 +83,7 @@ function Treatments() {
 
         {/* SECTION TITLE */}
         <h2 className="treatments-title">
-          Popular Treatments
+          Popular Medical Treatments in India
         </h2>
 
         {/* TREATMENTS GRID */}
@@ -92,7 +97,7 @@ function Treatments() {
               <div className="treatment-icon">
                 <img
                   src={treatment.image}
-                  alt={treatment.name}
+                  alt={treatment.alt}
                 />
               </div>
 

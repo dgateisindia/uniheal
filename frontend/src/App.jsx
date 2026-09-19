@@ -22,8 +22,9 @@ import Map from "./components/Map/Map";
 
 import Footer from "./components/Footer/Footer";
 
-import AdminLogin from "./components/AdminLogin/AdminLogin";
-import AdminDashboard from "./components/AdminDashboard/AdminDashboard";
+/* Admin pages */
+import AdminLogin from "./pages/AdminLogin/AdminLogin";
+import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
 
 import Specialities from "./components/Specialities/Specialities";
 
@@ -41,31 +42,35 @@ function PublicWebsite() {
     <>
       <Header />
 
-      <Home />
+      <main className="site-content">
 
-      <About />
+        <Home />
 
-      <Treatments />
+        <About />
 
-      <Cities />
+        <Treatments />
 
-      <Hospitals />
+        <Cities />
 
-      <Doctors />
+        <Hospitals />
 
-      <Journey />
+        <Doctors />
 
-      <Trust />
+        <Journey />
 
-      <Testimonials />
+        <Trust />
 
-      <FAQs />
+        <Testimonials />
 
-      <CTA />
+        <FAQs />
 
-      <Contact />
+        <CTA />
 
-      <Map />
+        <Contact />
+
+        <Map />
+
+      </main>
 
       <Footer />
     </>
@@ -124,7 +129,7 @@ function App() {
 
 
         {/* ==========================================
-            ADMIN LOGIN
+            ADMIN LOGIN PAGE
         ========================================== */}
 
         <Route
@@ -134,7 +139,7 @@ function App() {
 
 
         {/* ==========================================
-            ADMIN DASHBOARD
+            ADMIN DASHBOARD PAGE
         ========================================== */}
 
         <Route

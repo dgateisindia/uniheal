@@ -11,7 +11,7 @@ import gsap from "gsap";
 
 import "./Home.css";
 
-import heroImage from "../../assets/images/home/hero-image.jpg";
+import heroImage from "../../assets/images/home/hero-image.jpeg";
 import heroBackground from "../../assets/images/home/hero-background.webp";
 
 

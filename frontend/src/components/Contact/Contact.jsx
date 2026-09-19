@@ -6,12 +6,51 @@ import {
   FaWhatsapp,
 } from "react-icons/fa";
 
+import Select from "react-select";
+
+import PhoneInput from "react-phone-number-input/input";
+import {
+  getCountries,
+  getCountryCallingCode,
+  isValidPhoneNumber,
+} from "react-phone-number-input";
+
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import "react-phone-number-input/style.css";
 import "./Contact.css";
 
 gsap.registerPlugin(ScrollTrigger);
+
+/* =========================
+   COUNTRY LIST
+========================= */
+
+const countryNames = new Intl.DisplayNames(["en"], {
+  type: "region",
+});
+
+const countryOptions = getCountries()
+  .map((country) => {
+    const name =
+      countryNames.of(country) || country;
+
+    const callingCode =
+      getCountryCallingCode(country);
+
+    return {
+      value: country,
+      label: name,
+      countryName: name,
+      callingCode,
+    };
+  })
+  .sort((a, b) =>
+    a.countryName.localeCompare(
+      b.countryName
+    )
+  );
 
 function Contact() {
   const sectionRef = useRef(null);
@@ -20,22 +59,37 @@ function Contact() {
     name: "",
     email: "",
     contact: "",
-    country: "",
+    country: "IN",
     treatment: "",
     medicalHistory: "",
   });
 
-  const [medicalReports, setMedicalReports] = useState([]);
+  const [selectedCountry, setSelectedCountry] =
+    useState("IN");
+
+  const [medicalReports, setMedicalReports] =
+    useState([]);
 
   const [errors, setErrors] = useState({});
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitting, setIsSubmitting] =
+    useState(false);
 
-  const [submitMessage, setSubmitMessage] = useState("");
-  const [submitError, setSubmitError] = useState("");
+  const [submitMessage, setSubmitMessage] =
+    useState("");
 
-  const [captchaChecked, setCaptchaChecked] = useState(false);
-  const [captchaLoading, setCaptchaLoading] = useState(false);
+  const [submitError, setSubmitError] =
+    useState("");
+
+  const [captchaChecked, setCaptchaChecked] =
+    useState(false);
+
+  const [captchaLoading, setCaptchaLoading] =
+    useState(false);
+
+  /* =========================
+     GSAP ANIMATION
+  ========================= */
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -56,6 +110,10 @@ function Contact() {
     return () => ctx.revert();
   }, []);
 
+  /* =========================
+     GENERAL INPUT CHANGE
+  ========================= */
+
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -73,6 +131,55 @@ function Contact() {
     setSubmitError("");
   };
 
+  /* =========================
+     COUNTRY CHANGE
+  ========================= */
+
+  const handleCountryChange = (selectedOption) => {
+    const country =
+      selectedOption?.value || "IN";
+
+    setSelectedCountry(country);
+
+    setFormData((previous) => ({
+      ...previous,
+      country,
+      contact: previous.contact || "",
+    }));
+
+    setErrors((previous) => ({
+      ...previous,
+      country: "",
+      contact: "",
+    }));
+
+    setSubmitMessage("");
+    setSubmitError("");
+  };
+
+  /* =========================
+     CONTACT NUMBER CHANGE
+  ========================= */
+
+  const handleContactChange = (value) => {
+    setFormData((previous) => ({
+      ...previous,
+      contact: value || "",
+    }));
+
+    setErrors((previous) => ({
+      ...previous,
+      contact: "",
+    }));
+
+    setSubmitMessage("");
+    setSubmitError("");
+  };
+
+  /* =========================
+     FILE CHANGE
+  ========================= */
+
   const handleFileChange = (e) => {
     const files = Array.from(e.target.files);
 
@@ -86,6 +193,10 @@ function Contact() {
     setSubmitMessage("");
     setSubmitError("");
   };
+
+  /* =========================
+     CAPTCHA
+  ========================= */
 
   const handleCaptchaClick = () => {
     if (captchaChecked) {
@@ -122,6 +233,10 @@ function Contact() {
       handleCaptchaClick();
     }
   };
+
+  /* =========================
+     FORM VALIDATION
+  ========================= */
 
   const validateForm = () => {
     const newErrors = {};
@@ -161,18 +276,19 @@ function Contact() {
        CONTACT NUMBER
     ========================= */
 
-    const contact = formData.contact.trim();
+  /* =========================
+   CONTACT NUMBER
+========================= */
 
-    const phonePattern =
-      /^[6-9]\d{9}$/;
+const contact = formData.contact.trim();
 
-    if (!contact) {
-      newErrors.contact =
-        "Please enter your contact number.";
-    } else if (!phonePattern.test(contact)) {
-      newErrors.contact =
-        "Please enter a valid 10-digit mobile number.";
-    }
+      if (!contact) {
+        newErrors.contact =
+          "Please enter your contact number.";
+      } else if (!isValidPhoneNumber(contact)) {
+        newErrors.contact =
+          "Please enter a valid contact number.";
+      }
 
     /* =========================
        COUNTRY
@@ -180,7 +296,7 @@ function Contact() {
 
     if (!formData.country.trim()) {
       newErrors.country =
-        "Please enter your country.";
+        "Please select your country.";
     }
 
     /* =========================
@@ -194,7 +310,6 @@ function Contact() {
 
     /* =========================
        MEDICAL REPORTS
-       KEEPING EXISTING VALIDATION
     ========================= */
 
     if (medicalReports.length === 0) {
@@ -248,7 +363,7 @@ function Contact() {
 
     /* =========================
        MEDICAL HISTORY
-       OPTIONAL - NO VALIDATION
+       OPTIONAL
     ========================= */
 
     /* No validation for medicalHistory */
@@ -266,6 +381,10 @@ function Contact() {
 
     return Object.keys(newErrors).length === 0;
   };
+
+  /* =========================
+     FORM SUBMIT
+  ========================= */
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -342,10 +461,12 @@ function Contact() {
           name: "",
           email: "",
           contact: "",
-          country: "",
+          country: "IN",
           treatment: "",
           medicalHistory: "",
         });
+
+        setSelectedCountry("IN");
 
         setMedicalReports([]);
 
@@ -378,14 +499,27 @@ function Contact() {
     }
   };
 
+  /* =========================
+     SELECTED COUNTRY OPTION
+  ========================= */
+
+  const selectedCountryOption =
+    countryOptions.find(
+      (option) =>
+        option.value === selectedCountry
+    ) || null;
+
   return (
     <section
       className="contact-section"
       id="contact"
       ref={sectionRef}
     >
-
       <div className="contact-container">
+
+        {/* =========================
+            CONTACT FORM
+        ========================= */}
 
         <div className="contact-form-card">
 
@@ -410,12 +544,13 @@ function Contact() {
 
             <div className="contact-row">
 
-              {/* NAME */}
-
               <div className="contact-field">
 
                 <label>
-                  Your Name
+                  Your Name{" "}
+                  <span className="required-star">
+                    *
+                  </span>
                 </label>
 
                 <input
@@ -429,18 +564,18 @@ function Contact() {
                 {errors.name && (
                   <small className="form-error">
                     {errors.name}
-                    <span className="required-star"> *</span>
                   </small>
                 )}
 
               </div>
 
-              {/* EMAIL */}
-
               <div className="contact-field">
 
                 <label>
-                  Your Email
+                  Your Email{" "}
+                  <span className="required-star">
+                    *
+                  </span>
                 </label>
 
                 <input
@@ -454,7 +589,6 @@ function Contact() {
                 {errors.email && (
                   <small className="form-error">
                     {errors.email}
-                    <span className="required-star"> *</span>
                   </small>
                 )}
 
@@ -468,27 +602,34 @@ function Contact() {
 
             <div className="contact-row">
 
-              {/* CONTACT */}
+              {/* CONTACT NUMBER */}
 
               <div className="contact-field">
 
                 <label>
-                  Your Contact Number
+                  Your Contact Number{" "}
+                  <span className="required-star">
+                    *
+                  </span>
                 </label>
 
-                <input
-                  type="tel"
-                  name="contact"
-                  value={formData.contact}
-                  onChange={handleChange}
-                  placeholder="Your Contact Number"
-                  maxLength="10"
-                />
+                <div className="contact-phone-wrapper">
+
+                  <PhoneInput
+                    international
+                    withCountryCallingCode
+                    country={selectedCountry}
+                    value={formData.contact}
+                    onChange={handleContactChange}
+                    placeholder="Your Contact Number"
+                    className="contact-phone-input"
+                  />
+
+                </div>
 
                 {errors.contact && (
                   <small className="form-error">
                     {errors.contact}
-                    <span className="required-star"> *</span>
                   </small>
                 )}
 
@@ -499,21 +640,51 @@ function Contact() {
               <div className="contact-field">
 
                 <label>
-                  Your Country
+                  Your Country{" "}
+                  <span className="required-star">
+                    *
+                  </span>
                 </label>
 
-                <input
-                  type="text"
-                  name="country"
-                  value={formData.country}
-                  onChange={handleChange}
+                <Select
+                  value={selectedCountryOption}
+                  onChange={handleCountryChange}
+                  options={countryOptions}
+                  isSearchable
+                  isClearable={false}
                   placeholder="Your Country"
+                  className="country-select"
+                  classNamePrefix="country-select"
+                  maxMenuHeight={250}
+                  filterOption={(
+                    option,
+                    inputValue
+                  ) => {
+                    const search =
+                      inputValue
+                        .toLowerCase()
+                        .trim();
+
+                    if (!search) {
+                      return true;
+                    }
+
+                    return (
+                      option.data.countryName
+                        .toLowerCase()
+                        .includes(search) ||
+                      option.data.value
+                        .toLowerCase()
+                        .includes(search) ||
+                      option.data.callingCode
+                        .includes(search)
+                    );
+                  }}
                 />
 
                 {errors.country && (
                   <small className="form-error">
                     {errors.country}
-                    <span className="required-star"> *</span>
                   </small>
                 )}
 
@@ -528,7 +699,10 @@ function Contact() {
             <div className="contact-field">
 
               <label>
-                What Medical Treatment are you looking for?
+                What Medical Treatment are you looking for?{" "}
+                <span className="required-star">
+                  *
+                </span>
               </label>
 
               <input
@@ -543,7 +717,6 @@ function Contact() {
               {errors.treatment && (
                 <small className="form-error">
                   {errors.treatment}
-                  <span className="required-star"> *</span>
                 </small>
               )}
 
@@ -551,13 +724,15 @@ function Contact() {
 
             {/* =========================
                 MEDICAL REPORTS
-                NO OTHER CHANGES
             ========================= */}
 
             <div className="contact-upload">
 
               <label htmlFor="medicalReports">
-                Upload Medical Reports (PDF, JPG, PNG)
+                Upload Medical Reports (PDF, JPG, PNG){" "}
+                <span className="required-star">
+                  *
+                </span>
               </label>
 
               <input
@@ -572,7 +747,6 @@ function Contact() {
               {errors.medicalReports && (
                 <small className="form-error">
                   {errors.medicalReports}
-                  <span className="required-star"> *</span>
                 </small>
               )}
 
@@ -619,8 +793,6 @@ function Contact() {
               tabIndex="0"
             >
 
-              {/* CHECKBOX */}
-
               <div className="captcha-checkbox">
 
                 {captchaLoading && (
@@ -636,13 +808,9 @@ function Contact() {
 
               </div>
 
-              {/* TEXT */}
-
               <span className="captcha-text">
                 I'm not a robot
               </span>
-
-              {/* LOGO */}
 
               <div className="captcha-logo">
 
@@ -787,7 +955,6 @@ function Contact() {
         </div>
 
       </div>
-
     </section>
   );
 }

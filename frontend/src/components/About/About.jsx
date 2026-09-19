@@ -80,18 +80,18 @@ function About() {
         <div className="about-content">
 
           <h2 className="about-title">
-            About UniHeal
-          </h2>
+              About UniHeal
+            </h2>
 
-          <p className="about-description">
-            UniHeal is recognized as one of the best medical tourism
-            companies in India, providing end-to-end support for
-            international patients seeking advanced healthcare. We offer
-            cost comparisons, treatment planning, hospital selection, and
-            medical tourism packages in India designed to fit your budget
-            and medical needs. With strong networks across India’s top
-            hospitals and specialists, we deliver safe, transparent, and
-            hassle-free international patient services in India.
+         <p className="about-description">
+              UniHeal helps international patients explore medical treatment options
+              in India by connecting them with hospitals, doctors, and healthcare
+              services. We provide support with medical opinion requests, treatment
+              planning, hospital selection, cost comparisons, and other aspects of
+              planning healthcare in India. Through our network of hospitals and
+              specialists across India, UniHeal aims to make the process of finding
+              suitable medical care clear, convenient, and easier for international
+              patients.
           </p>
 
           <button
@@ -109,9 +109,9 @@ function About() {
         <div className="about-visual">
 
           <div className="about-image-card">
-            <img
+           <img
               src={aboutImage}
-              alt="UniHeal medical care"
+              alt="UniHeal healthcare support for international patients in India"
               className="about-image"
             />
           </div>

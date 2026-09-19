@@ -3,6 +3,7 @@ import "./Footer.css";
 import {
   FaMapMarkerAlt,
   FaWhatsapp,
+  FaPhoneAlt,
   FaEnvelope,
   FaFacebookF,
   FaInstagram,
@@ -88,6 +89,14 @@ function Footer() {
       "_blank",
       "noopener,noreferrer"
     );
+  };
+
+  /* =========================
+     PHONE CALL
+  ========================= */
+
+  const handleCall = () => {
+    window.location.href = "tel:+919538564300";
   };
 
   /* =========================
@@ -394,6 +403,20 @@ function Footer() {
         </p>
 
       </div>
+
+
+      {/* =========================
+          FLOATING CALL
+      ========================= */}
+
+      <button
+        type="button"
+        className="footer-call"
+        onClick={handleCall}
+        aria-label="Call UniHeal"
+      >
+        <FaPhoneAlt />
+      </button>
 
 
       {/* =========================

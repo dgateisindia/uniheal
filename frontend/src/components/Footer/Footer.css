@@ -313,6 +313,50 @@
 
 
 /* =========================
+   CALL BUTTON
+========================= */
+.footer-call {
+  position: fixed;
+
+  right: 28px;
+  bottom: 141px;
+
+  width: 58px;
+  height: 58px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #0757a0; /* Dark blue */
+
+  color: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 25px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.18);
+
+  z-index: 1000;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.footer-call:hover {
+  transform: scale(1.06);
+
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.22);
+}
+
+/* =========================
    WHATSAPP BUTTON
 ========================= */
 
@@ -549,11 +593,28 @@
 
 
   /* =========================
-     FLOATING BUTTONS
+     FLOATING CALL
+  ========================= */
+
+  .footer-call {
+    right: 20px;
+
+    bottom: 130px;
+
+    width: 52px;
+    height: 52px;
+
+    font-size: 23px;
+  }
+
+
+  /* =========================
+     FLOATING WHATSAPP
   ========================= */
 
   .footer-whatsapp {
     right: 20px;
+
     bottom: 68px;
 
     width: 52px;
@@ -562,8 +623,14 @@
     font-size: 28px;
   }
 
+
+  /* =========================
+     FLOATING SCROLL TOP
+  ========================= */
+
   .footer-scroll-top {
     right: 20px;
+
     bottom: 12px;
 
     width: 43px;
@@ -740,11 +807,28 @@
 
 
   /* =========================
+     SMALL CALL BUTTON
+  ========================= */
+
+  .footer-call {
+    right: 15px;
+
+    bottom: 116px;
+
+    width: 46px;
+    height: 46px;
+
+    font-size: 21px;
+  }
+
+
+  /* =========================
      SMALL WHATSAPP BUTTON
   ========================= */
 
   .footer-whatsapp {
     right: 15px;
+
     bottom: 60px;
 
     width: 46px;
@@ -760,6 +844,7 @@
 
   .footer-scroll-top {
     right: 15px;
+
     bottom: 9px;
 
     width: 38px;

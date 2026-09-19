@@ -1,7 +1,6 @@
 const db = require("../config/db");
 
 const createContactSubmission = (req, res) => {
-
   const {
     name,
     email,
@@ -11,11 +10,8 @@ const createContactSubmission = (req, res) => {
     medicalHistory,
   } = req.body;
 
-  // ==========================
   // REQUIRED FIELD VALIDATION
   // Medical History is OPTIONAL
-  // ==========================
-
   if (
     !name ||
     !email ||
@@ -29,10 +25,7 @@ const createContactSubmission = (req, res) => {
     });
   }
 
-  // ==========================
   // EMAIL VALIDATION
-  // ==========================
-
   const emailPattern =
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -43,25 +36,19 @@ const createContactSubmission = (req, res) => {
     });
   }
 
-  // ==========================
   // CONTACT NUMBER VALIDATION
-  // ==========================
-
+  // INTERNATIONAL NUMBER
   const phonePattern =
-    /^[6-9]\d{9}$/;
+    /^\+[1-9]\d{7,14}$/;
 
-  if (!phonePattern.test(contact)) {
+  if (!phonePattern.test(contact.trim())) {
     return res.status(400).json({
       success: false,
-      message: "Please enter a valid 10-digit mobile number.",
+      message: "Please enter a valid contact number.",
     });
   }
 
-  // ==========================
   // MEDICAL REPORTS
-  // KEEPING EXISTING LOGIC
-  // ==========================
-
   let medicalReports = null;
 
   if (req.files && req.files.length > 0) {
@@ -70,10 +57,7 @@ const createContactSubmission = (req, res) => {
       .join(",");
   }
 
-  // ==========================
   // INSERT QUERY
-  // ==========================
-
   const sql = `
     INSERT INTO contact_submissions
     (
@@ -88,11 +72,6 @@ const createContactSubmission = (req, res) => {
     VALUES (?, ?, ?, ?, ?, ?, ?)
   `;
 
-  // ==========================
-  // VALUES
-  // Medical History can be NULL
-  // ==========================
-
   const values = [
     name.trim(),
     email.trim(),
@@ -105,17 +84,11 @@ const createContactSubmission = (req, res) => {
       : null,
   ];
 
-  // ==========================
-  // DATABASE INSERT
-  // ==========================
-
   db.query(
     sql,
     values,
     (err, result) => {
-
       if (err) {
-
         console.error(
           "❌ Error saving contact submission:",
           err
@@ -132,7 +105,6 @@ const createContactSubmission = (req, res) => {
         message: "Contact submission saved successfully.",
         submissionId: result.insertId,
       });
-
     }
   );
 };

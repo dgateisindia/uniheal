@@ -46,18 +46,15 @@
 
   color: var(--heading-color);
 }
-
 .about-description {
   margin: 0;
-
+  max-width: 580px;
   font-family: var(--font-family);
-
   font-size: 22px;
   line-height: 1.75;
-
   font-weight: var(--font-regular);
-
   color: #526070;
+  text-align: left;
 }
 
 .about-button {
