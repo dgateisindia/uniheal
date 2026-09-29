@@ -29,6 +29,8 @@ function Header() {
     { name: "Hospitals", id: "hospitals" },
     { name: "Doctors", id: "doctors" },
     { name: "Patient Guide", id: "journey" },
+    { name: "FAQ", id:"faq"},
+    { name: "Contact", id:"contact"},
   ];
 
   /* =========================================
@@ -114,7 +116,7 @@ function Header() {
     };
   }, [location.pathname, location.hash]);
 
-  /* =========================================
+  /*=========================================
      SCROLL TO HOMEPAGE SECTION
   ========================================= */
   const scrollToSection = (id) => {
@@ -133,7 +135,7 @@ function Header() {
     });
   };
 
-  /* =========================================
+  /*=========================================
      NAVIGATION
   ========================================= */
   const handleNavigation = (id) => {
@@ -142,7 +144,7 @@ function Header() {
     // Close mobile menu
     setMenuOpen(false);
 
-    /* =========================================
+    /*=========================================
        HOME
     ========================================= */
     if (id === "home") {
@@ -445,7 +447,7 @@ function Header() {
               handleNavigation("contact")
             }
           >
-            Contact Us
+            Get a FREE Quote
           </button>
 
         </div>

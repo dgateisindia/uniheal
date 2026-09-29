@@ -184,7 +184,7 @@ function Footer() {
           <div className="footer-socials">
 
             <a
-              href="https://www.facebook.com/"
+              href="https://www.facebook.com/unihealrobust"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon facebook"
@@ -194,7 +194,7 @@ function Footer() {
             </a>
 
             <a
-              href="https://www.instagram.com/"
+              href="https://www.instagram.com/uniheal_/"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon instagram"
@@ -204,7 +204,7 @@ function Footer() {
             </a>
 
             <a
-              href="https://www.linkedin.com/"
+              href="https://www.linkedin.com/company/uniheal/home/"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon linkedin"

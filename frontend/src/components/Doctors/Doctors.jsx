@@ -137,7 +137,6 @@ function Doctors() {
 
               </div>
 
-
               <div className="doctor-details">
 
                 <h3 className="doctor-name">
@@ -153,19 +152,6 @@ function Doctors() {
                 <p className="doctor-experience">
                   {doctor.experience}
                 </p>
-
-
-                {/* ==========================================
-                    GET IN TOUCH BUTTON
-                    ========================================== */}
-
-                <button
-                  type="button"
-                  className="doctor-contact"
-                  onClick={handleContactNavigation}
-                >
-                  Get In Touch
-                </button>
 
               </div>
 

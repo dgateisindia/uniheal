@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import logo from "../../assets/images/logo/uniheal-logo.webp";
 import "./AdminLogin.css";
+
 
 function AdminLogin() {
   const navigate = useNavigate();
@@ -85,7 +87,7 @@ function AdminLogin() {
         {/* Logo */}
         <div className="admin-login-logo">
           <img
-            src="/src/assets/images/logo/uniheal-logo.webp"
+            src={logo}
             alt="UniHeal"
           />
         </div>
